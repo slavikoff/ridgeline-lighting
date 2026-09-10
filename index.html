@@ -1,0 +1,864 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="utf-8">
+<meta name="robots" content="noindex, nofollow">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Ridgeline Lighting Co. — Holiday, Permanent &amp; Landscape Lighting | Chicago Southwest Suburbs</title>
+<meta name="description" content="Professional holiday light installation, permanent programmable LED systems, and landscape lighting for Orland Park, Palos, Homer Glen, Lemont and Frankfort. Free on-site design. Most homes $1,500–$2,500.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+<style>
+/* ============ tokens ============ */
+:root{
+  --night-1:#070C14; --night-2:#0E1826;
+  --bg:#080E17; --surface:#111C2B; --surface-2:#0C1521;
+  --rule:#1F2E40; --rule-soft:#16222F;
+  --text:#E8EEF5; --muted:#8CA0B4; --dim:#63788C;
+  --glow:#FFC468; --glow-2:#FFE3B0; --glow-soft:rgba(255,196,104,.14);
+  --rgb:#63B3E8; --rgb-soft:rgba(99,179,232,.14);
+  --shell:1120px;
+}
+html[data-theme="light"]{
+  --bg:#EDF1F6; --surface:#FFFFFF; --surface-2:#F6F9FB;
+  --rule:#D5DEE7; --rule-soft:#E5EBF1;
+  --text:#0A111C; --muted:#4F6178; --dim:#77899D;
+  --glow:#A0640A; --glow-2:#C4861F; --glow-soft:rgba(160,100,10,.11);
+  --rgb:#1B6DA6; --rgb-soft:rgba(27,109,166,.11);
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0;background:var(--bg);color:var(--text);
+  font-family:"Instrument Sans",system-ui,-apple-system,sans-serif;
+  font-size:17px;line-height:1.6;-webkit-font-smoothing:antialiased;
+}
+.shell{max-width:var(--shell);margin:0 auto;padding:0 28px}
+a{color:inherit}
+h1,h2,h3,h4{margin:0;letter-spacing:-.02em}
+.serif{font-family:"Instrument Serif",Georgia,serif;font-weight:400;letter-spacing:-.01em}
+:focus-visible{outline:2px solid var(--glow);outline-offset:3px;border-radius:3px}
+
+/* ============ nav ============ */
+nav{position:sticky;top:0;z-index:50;background:color-mix(in srgb,var(--bg) 88%,transparent);
+    backdrop-filter:blur(12px);border-bottom:1px solid var(--rule-soft)}
+.nav-in{display:flex;align-items:center;gap:32px;height:70px;max-width:var(--shell);margin:0 auto;padding:0 28px}
+.brand{display:flex;align-items:center;gap:10px;font-size:19px;font-weight:600;text-decoration:none;white-space:nowrap}
+.brand .dot{width:9px;height:9px;border-radius:50%;background:var(--glow);
+  box-shadow:0 0 10px 2px var(--glow-soft),0 0 22px 6px var(--glow-soft)}
+.nav-links{display:flex;gap:26px;margin-left:auto;font-size:15px}
+.nav-links a{color:var(--muted);text-decoration:none}
+.nav-links a:hover{color:var(--text)}
+.nav-cta{display:flex;align-items:center;gap:14px}
+.tel{font-size:15px;font-weight:600;text-decoration:none;white-space:nowrap}
+button.theme{background:none;border:1px solid var(--rule);color:var(--dim);border-radius:999px;
+  width:34px;height:34px;font:inherit;font-size:14px;cursor:pointer;flex:none;line-height:1}
+button.theme:hover{color:var(--glow);border-color:var(--glow)}
+.btn{display:inline-block;text-decoration:none;font-weight:600;font-size:15px;
+  padding:11px 20px;border-radius:7px;background:var(--glow);color:#150E02;white-space:nowrap;border:none;cursor:pointer;font-family:inherit}
+html[data-theme="light"] .btn{color:#FFF8EC}
+.btn:hover{filter:brightness(1.1)}
+.btn-ghost{background:none;border:1px solid var(--rule);color:var(--text)}
+.btn-ghost:hover{border-color:var(--glow);color:var(--glow);filter:none}
+.btn-lg{font-size:16.5px;padding:14px 26px}
+
+/* ============ hero ============ */
+.hero{padding:64px 0 0}
+.hero-copy{max-width:23ch}
+.hero h1{font-size:clamp(40px,6.4vw,74px);line-height:1.02}
+.hero h1 .serif{display:block}
+.hero p.lede{margin:24px 0 0;font-size:19px;color:var(--muted);max-width:46ch}
+.hero-actions{display:flex;flex-wrap:wrap;gap:12px;margin-top:32px}
+.hero-note{margin:18px 0 0;font-size:14.5px;color:var(--dim)}
+.hero-grid{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:center}
+.scene{border-radius:14px;overflow:hidden;border:1px solid #1B2838;
+  background:linear-gradient(#070C14,#101E31)}
+.scene svg{display:block;width:100%;height:auto}
+.bulb{opacity:0}
+@keyframes lite{to{opacity:1}}
+.bulb{animation:lite .5s ease-out forwards}
+@media (prefers-reduced-motion:reduce){.bulb{animation:none;opacity:1}}
+
+/* ============ strip ============ */
+.strip{margin-top:72px;border-top:1px solid var(--rule);border-bottom:1px solid var(--rule);
+  display:grid;grid-template-columns:repeat(4,1fr)}
+.strip div{padding:22px 24px;border-left:1px solid var(--rule-soft)}
+.strip div:first-child{border-left:none;padding-left:0}
+.strip b{display:block;font-size:17px;font-weight:600}
+.strip span{font-size:14px;color:var(--dim)}
+
+/* ============ sections ============ */
+section{padding:96px 0}
+.sec-head{max-width:60ch;margin-bottom:44px}
+.eyebrow{font-size:14px;color:var(--glow);margin:0 0 12px;font-weight:600}
+.sec-head h2{font-size:clamp(30px,4vw,44px);line-height:1.08}
+.sec-head p{margin:16px 0 0;color:var(--muted);font-size:17.5px}
+
+/* service list — hairline rows, not cards */
+.svc{border-top:1px solid var(--rule)}
+.svc-row{display:grid;grid-template-columns:270px 1fr;gap:36px;
+  padding:26px 0;border-bottom:1px solid var(--rule-soft)}
+.svc-row h3{font-size:20px;font-weight:600}
+.svc-row p{margin:6px 0 0;color:var(--muted);font-size:16px;max-width:60ch}
+.incl{display:flex;flex-wrap:wrap;gap:6px;margin:12px 0 0;padding:0;list-style:none}
+.incl li{font-size:13.5px;color:var(--muted);border:1px solid var(--rule-soft);
+  background:var(--surface-2);border-radius:5px;padding:3px 10px}
+
+/* permanent lighting feature — the money product, gets its own treatment */
+.feature{background:var(--surface);border:1px solid var(--rule);border-radius:16px;
+  padding:44px 48px;display:grid;grid-template-columns:1.1fr 1fr;gap:48px;align-items:center}
+.feature .eyebrow{color:var(--rgb)}
+.feature h2{font-size:clamp(28px,3.6vw,40px);line-height:1.1}
+.feature p{color:var(--muted);margin:16px 0 0;font-size:17px}
+.feature ul{margin:24px 0 0;padding:0;list-style:none;display:grid;gap:10px}
+.feature ul li{padding-left:24px;position:relative;font-size:16px}
+.feature ul li::before{content:"";position:absolute;left:0;top:.6em;width:8px;height:8px;
+  border-radius:50%;background:var(--rgb);box-shadow:0 0 8px 2px var(--rgb-soft)}
+.swatches{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin-top:26px}
+.swatches i{height:44px;border-radius:6px;display:block}
+
+/* how it works — genuine sequence, numbering earns its place */
+.steps{display:grid;grid-template-columns:repeat(3,1fr);gap:2px;background:var(--rule-soft)}
+.step{background:var(--bg);padding:28px 26px}
+.step b{display:block;font-family:"Instrument Serif",serif;font-size:34px;color:var(--glow);line-height:1;margin-bottom:12px}
+.step h3{font-size:17.5px;font-weight:600}
+.step p{margin:8px 0 0;font-size:15.5px;color:var(--muted)}
+
+/* pricing */
+.price-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.price-card{border:1px solid var(--rule);border-radius:12px;padding:28px;background:var(--surface-2)}
+.price-card.lead{border-color:var(--glow);background:var(--glow-soft)}
+.price-card h3{font-size:17px;font-weight:600;color:var(--muted)}
+.price-card .num{font-family:"Instrument Serif",serif;font-size:38px;line-height:1.1;display:block;margin:10px 0 6px}
+.price-card p{margin:0;font-size:15px;color:var(--muted)}
+.price-note{margin:28px 0 0;padding:20px 24px;border-left:2px solid var(--glow);
+  color:var(--muted);font-size:16px;max-width:74ch}
+.price-note strong{color:var(--text);font-weight:600}
+
+/* trust */
+.trust{display:grid;grid-template-columns:repeat(2,1fr);gap:0 56px}
+.trust div{padding:22px 0;border-top:1px solid var(--rule-soft)}
+.trust h3{font-size:17px;font-weight:600}
+.trust p{margin:6px 0 0;color:var(--muted);font-size:16px}
+
+/* area */
+.area{display:flex;flex-wrap:wrap;gap:10px;margin:0;padding:0;list-style:none}
+.area li{border:1px solid var(--rule);border-radius:999px;padding:7px 17px;font-size:15px}
+.area li.core{border-color:var(--glow);color:var(--glow)}
+
+/* faq */
+details{border-bottom:1px solid var(--rule-soft);padding:20px 0}
+details summary{cursor:pointer;font-size:17.5px;font-weight:600;list-style:none}
+details summary::-webkit-details-marker{display:none}
+details summary::after{content:"+";float:right;color:var(--glow);font-weight:400}
+details[open] summary::after{content:"–"}
+details p{margin:12px 0 0;color:var(--muted);font-size:16px;max-width:72ch}
+
+/* quote form */
+.quote{background:var(--surface);border:1px solid var(--rule);border-radius:16px;padding:44px 48px;
+  display:grid;grid-template-columns:1fr 1.15fr;gap:52px}
+.quote h2{font-size:clamp(27px,3.4vw,36px);line-height:1.1}
+.quote .sub{color:var(--muted);margin:16px 0 0}
+.fields{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.fields label{display:flex;flex-direction:column;gap:6px;font-size:14px;color:var(--muted)}
+.fields label.wide{grid-column:1/-1}
+input,select,textarea{
+  font:inherit;font-size:16px;padding:11px 13px;border-radius:7px;
+  background:var(--surface-2);border:1px solid var(--rule);color:var(--text)}
+textarea{resize:vertical;min-height:88px}
+.form-foot{grid-column:1/-1;display:flex;flex-wrap:wrap;align-items:center;gap:16px;margin-top:4px}
+.form-foot small{color:var(--dim);font-size:13.5px}
+#sent{margin:14px 0 0;color:var(--glow);font-size:15px}
+
+/* footer */
+footer{border-top:1px solid var(--rule);padding:48px 0 60px;color:var(--dim);font-size:15px}
+.foot-grid{display:grid;grid-template-columns:2fr 1fr 1fr;gap:40px}
+footer h4{font-size:14px;color:var(--text);margin-bottom:12px;font-weight:600}
+footer ul{list-style:none;margin:0;padding:0;display:grid;gap:7px}
+footer a{text-decoration:none;color:var(--dim)}
+footer a:hover{color:var(--glow)}
+.legal{margin-top:40px;padding-top:22px;border-top:1px solid var(--rule-soft);font-size:13.5px}
+
+@media (max-width:980px){
+  .hero-grid,.feature,.quote{grid-template-columns:1fr;gap:36px}
+  .steps,.price-grid{grid-template-columns:1fr}
+  .strip{grid-template-columns:1fr 1fr}
+  .strip div:nth-child(3){border-left:none;padding-left:0}
+  .trust{grid-template-columns:1fr}
+  .foot-grid{grid-template-columns:1fr}
+  .nav-links{display:none}
+  .feature,.quote{padding:32px 26px}
+  section{padding:68px 0}
+  .svc-row{grid-template-columns:1fr;gap:8px}
+}
+@media (max-width:520px){
+  .fields{grid-template-columns:1fr}
+  .strip{grid-template-columns:1fr}
+  .strip div{border-left:none;padding-left:0}
+  .tel{display:none}
+}
+
+/* ============ background string lights ============ */
+.xlights{position:fixed;inset:0;z-index:0;pointer-events:none;overflow:hidden;
+  opacity:.5;--xwire:#22323F}
+html[data-theme="light"] .xlights{opacity:.38;--xwire:#AEBDCA}
+.xlights svg{display:block}
+.shell,section,footer{position:relative;z-index:1}
+.xb{animation-name:flick;animation-iteration-count:infinite;animation-timing-function:ease-in-out}
+@keyframes flick{
+  0%,100%{opacity:1}
+  36%{opacity:.42}
+  54%{opacity:.94}
+  71%{opacity:.28}
+  87%{opacity:.86}
+}
+@media (prefers-reduced-motion:reduce){.xb{animation:none;opacity:.9}}
+</style>
+</head>
+<body>
+
+<div class="xlights" aria-hidden="true"></div>
+
+<nav>
+  <div class="nav-in">
+    <a class="brand" href="#top"><span class="dot"></span>Ridgeline Lighting Co.</a>
+    <div class="nav-links">
+      <a href="#holiday">Holiday</a>
+      <a href="#permanent">Permanent</a>
+      <a href="#landscape">Landscape</a>
+      <a href="#commercial">Commercial</a>
+      <a href="products.html">Products</a>
+      <a href="#pricing">Pricing</a>
+    </div>
+    <div class="nav-cta">
+      <a class="tel" href="tel:+1312XXXXXXX">(312) XXX-XXXX</a>
+      <a class="btn" href="#quote">Free design visit</a>
+      <button class="theme" id="t" aria-label="Switch between dark and light">☀</button>
+    </div>
+  </div>
+</nav>
+
+<div id="top"></div>
+
+<!-- ================= HERO ================= -->
+<div class="shell">
+  <div class="hero">
+    <div class="hero-grid">
+      <div>
+        <div class="hero-copy">
+          <h1>Your roofline,<span class="serif">done properly.</span></h1>
+        </div>
+        <p class="lede">Holiday lighting, permanent programmable LED systems, and year-round landscape lighting for the southwest suburbs. We measure, design, install, service, take down and store it. You plug in a timer.</p>
+        <div class="hero-actions">
+          <a class="btn btn-lg" href="#quote">Book a free design visit</a>
+          <a class="btn btn-lg btn-ghost" href="#permanent">See permanent lighting</a>
+        </div>
+        <p class="hero-note">Most homes land between $1,500 and $2,500. We publish that because nobody else will.</p>
+      </div>
+
+      <div class="scene" aria-label="Illustration of a two-storey house at night with a lit roofline">
+        <svg viewBox="0 0 620 440" xmlns="http://www.w3.org/2000/svg" role="img">
+          <defs>
+            <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0%" stop-color="#0A1220"/><stop offset="60%" stop-color="#112034"/><stop offset="100%" stop-color="#16283D"/>
+            </linearGradient>
+            <radialGradient id="halo"><stop offset="0%" stop-color="#FFC468" stop-opacity=".55"/><stop offset="100%" stop-color="#FFC468" stop-opacity="0"/></radialGradient>
+            <linearGradient id="snow" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0%" stop-color="#25384E"/><stop offset="100%" stop-color="#16273A"/>
+            </linearGradient>
+          </defs>
+
+          <rect width="620" height="440" fill="url(#sky)"/>
+          <!-- stars -->
+          <g fill="#8CA0B4" opacity=".5">
+            <circle cx="70" cy="52" r="1.2"/><circle cx="152" cy="30" r="1"/><circle cx="300" cy="44" r="1.3"/>
+            <circle cx="418" cy="26" r="1"/><circle cx="520" cy="60" r="1.2"/><circle cx="573" cy="34" r="1"/>
+            <circle cx="236" cy="66" r="1"/><circle cx="470" cy="88" r="1"/>
+          </g>
+          <!-- distant treeline -->
+          <path d="M0 300 l34-40 24 40 30-52 26 52 40-34 22 34 36-44 26 44 h-264z" fill="#0C1725"/>
+          <path d="M470 300 l30-46 24 46 32-38 22 38 42-30 v30 h-172z" fill="#0C1725"/>
+
+          <!-- house body -->
+          <path d="M120 300 V186 l106-66 106 66 V300 z" fill="#101C2C"/>
+          <path d="M332 300 V214 l70-40 70 40 V300 z" fill="#0E1928"/>
+          <!-- roofs -->
+          <path d="M104 192 L226 116 348 192 z" fill="#16253A"/>
+          <path d="M322 220 L402 168 482 220 z" fill="#142234"/>
+
+          <!-- windows -->
+          <g fill="#FFD79A" opacity=".82">
+            <rect x="152" y="214" width="34" height="44" rx="3"/>
+            <rect x="266" y="214" width="34" height="44" rx="3"/>
+            <rect x="362" y="242" width="30" height="38" rx="3"/>
+          </g>
+          <rect x="206" y="240" width="40" height="60" rx="3" fill="#1D2E42"/>
+          <rect x="206" y="240" width="40" height="60" rx="3" fill="none" stroke="#2A3D53"/>
+
+          <!-- ground -->
+          <rect x="0" y="298" width="620" height="142" fill="url(#snow)"/>
+          <path d="M0 316 q140 -22 300 -6 t320 -8 v138 H0z" fill="#1B2C40" opacity=".7"/>
+
+          <!-- shrub uplights -->
+          <g>
+            <circle cx="96" cy="322" r="34" fill="url(#halo)" class="bulb" style="animation-delay:2.1s"/>
+            <circle cx="524" cy="322" r="34" fill="url(#halo)" class="bulb" style="animation-delay:2.25s"/>
+            <ellipse cx="96" cy="322" rx="22" ry="16" fill="#132437"/>
+            <ellipse cx="524" cy="322" rx="22" ry="16" fill="#132437"/>
+          </g>
+
+          <!-- roofline bulbs: main gable left slope -->
+          <g>
+            <circle class="bulb" style="animation-delay:.10s" cx="110" cy="194" r="14" fill="url(#halo)"/><circle class="bulb" style="animation-delay:.10s" cx="110" cy="194" r="3.6" fill="#FFE3B0"/>
+            <circle class="bulb" style="animation-delay:.18s" cx="139" cy="176" r="14" fill="url(#halo)"/><circle class="bulb" style="animation-delay:.18s" cx="139" cy="176" r="3.6" fill="#FFE3B0"/>
+            <circle class="bulb" style="animation-delay:.26s" cx="168" cy="158" r="14" fill="url(#halo)"/><circle class="bulb" style="animation-delay:.26s" cx="168" cy="158" r="3.6" fill="#FFE3B0"/>
+            <circle class="bulb" style="animation-delay:.34s" cx="197" cy="140" r="14" fill="url(#halo)"/><circle class="bulb" style="animation-delay:.34s" cx="197" cy="140" r="3.6" fill="#FFE3B0"/>
+            <circle class="bulb" style="animation-delay:.42s" cx="226" cy="122" r="16" fill="url(#halo)"/><circle class="bulb" style="animation-delay:.42s" cx="226" cy="122" r="4" fill="#FFF1D6"/>
+            <circle class="bulb" style="animation-delay:.50s" cx="255" cy="140" r="14" fill="url(#halo)"/><circle class="bulb" style="animation-delay:.50s" cx="255" cy="140" r="3.6" fill="#FFE3B0"/>
+            <circle class="bulb" style="animation-delay:.58s" cx="284" cy="158" r="14" fill="url(#halo)"/><circle class="bulb" style="animation-delay:.58s" cx="284" cy="158" r="3.6" fill="#FFE3B0"/>
+            <circle class="bulb" style="animation-delay:.66s" cx="313" cy="176" r="14" fill="url(#halo)"/><circle class="bulb" style="animation-delay:.66s" cx="313" cy="176" r="3.6" fill="#FFE3B0"/>
+            <circle class="bulb" style="animation-delay:.74s" cx="342" cy="194" r="14" fill="url(#halo)"/><circle class="bulb" style="animation-delay:.74s" cx="342" cy="194" r="3.6" fill="#FFE3B0"/>
+          </g>
+          <!-- garage wing roofline -->
+          <g>
+            <circle class="bulb" style="animation-delay:.86s" cx="328" cy="222" r="13" fill="url(#halo)"/><circle class="bulb" style="animation-delay:.86s" cx="328" cy="222" r="3.4" fill="#FFE3B0"/>
+            <circle class="bulb" style="animation-delay:.94s" cx="365" cy="198" r="13" fill="url(#halo)"/><circle class="bulb" style="animation-delay:.94s" cx="365" cy="198" r="3.4" fill="#FFE3B0"/>
+            <circle class="bulb" style="animation-delay:1.02s" cx="402" cy="172" r="15" fill="url(#halo)"/><circle class="bulb" style="animation-delay:1.02s" cx="402" cy="172" r="3.8" fill="#FFF1D6"/>
+            <circle class="bulb" style="animation-delay:1.10s" cx="439" cy="198" r="13" fill="url(#halo)"/><circle class="bulb" style="animation-delay:1.10s" cx="439" cy="198" r="3.4" fill="#FFE3B0"/>
+            <circle class="bulb" style="animation-delay:1.18s" cx="476" cy="222" r="13" fill="url(#halo)"/><circle class="bulb" style="animation-delay:1.18s" cx="476" cy="222" r="3.4" fill="#FFE3B0"/>
+          </g>
+          <!-- eave run across front -->
+          <g>
+            <circle class="bulb" style="animation-delay:1.32s" cx="138" cy="300" r="11" fill="url(#halo)"/><circle class="bulb" style="animation-delay:1.32s" cx="138" cy="300" r="3" fill="#FFE3B0"/>
+            <circle class="bulb" style="animation-delay:1.40s" cx="172" cy="300" r="11" fill="url(#halo)"/><circle class="bulb" style="animation-delay:1.40s" cx="172" cy="300" r="3" fill="#FFE3B0"/>
+            <circle class="bulb" style="animation-delay:1.48s" cx="278" cy="300" r="11" fill="url(#halo)"/><circle class="bulb" style="animation-delay:1.48s" cx="278" cy="300" r="3" fill="#FFE3B0"/>
+            <circle class="bulb" style="animation-delay:1.56s" cx="312" cy="300" r="11" fill="url(#halo)"/><circle class="bulb" style="animation-delay:1.56s" cx="312" cy="300" r="3" fill="#FFE3B0"/>
+          </g>
+          <!-- wrapped tree -->
+          <g>
+            <rect x="566" y="250" width="6" height="52" fill="#16273A"/>
+            <circle class="bulb" style="animation-delay:1.70s" cx="569" cy="246" r="18" fill="url(#halo)"/>
+            <circle class="bulb" style="animation-delay:1.78s" cx="569" cy="266" r="16" fill="url(#halo)"/>
+            <circle class="bulb" style="animation-delay:1.86s" cx="569" cy="286" r="14" fill="url(#halo)"/>
+          </g>
+        </svg>
+      </div>
+    </div>
+
+    <div class="strip">
+      <div><b>Licensed &amp; insured</b><span>Height-work endorsement in force</span></div>
+      <div><b>Ladder-only crews</b><span>We never walk your roof</span></div>
+      <div><b>Return customers save 30%</b><span>Written into your first invoice</span></div>
+      <div><b>Commercial-grade LEDs</b><span>Not retail strands</span></div>
+    </div>
+  </div>
+</div>
+
+<!-- ================= HOLIDAY ================= -->
+<section id="holiday">
+  <div class="shell">
+    <div class="sec-head">
+      <p class="eyebrow">Seasonal holiday lighting</p>
+      <h2>Everything from the ridge to the walkway</h2>
+      <p>One crew, one design, one invoice. Every seasonal package includes mid-season service, takedown and off-season storage — those aren't upcharges buried in the fine print.</p>
+    </div>
+
+    <div class="svc">
+      <div class="svc-row">
+        <h3>Roofline &amp; peaks</h3>
+        <div>
+          <p>C9 or C7 commercial LED runs along ridges, eaves, gables, dormers and peaks. Fastened with non-invasive ridge and gutter clips — no staples, no nails, no holes in your fascia.</p>
+          <ul class="incl"><li>Warm white, cool white or colour</li><li>Custom spacing</li><li>Steep-pitch capable</li></ul>
+        </div>
+      </div>
+      <div class="svc-row">
+        <h3>Trees &amp; shrubs</h3>
+        <div>
+          <p>Trunk and branch wrapping, canopy lighting, mini-light and net-light coverage on hedges and foundation plantings. Large specimen trees quoted by height and reach.</p>
+          <ul class="incl"><li>Trunk wraps</li><li>Net lights</li><li>Canopy &amp; uplit trees</li></ul>
+        </div>
+      </div>
+      <div class="svc-row">
+        <h3>Columns, entryways &amp; windows</h3>
+        <div>
+          <p>Pillar and post wrapping, door surrounds, window framing, railings, balustrades and porch outlines. This is what makes a house read as decorated rather than outlined.</p>
+          <ul class="incl"><li>Column wraps</li><li>Window frames</li><li>Railings &amp; porches</li></ul>
+        </div>
+      </div>
+      <div class="svc-row">
+        <h3>Wreaths, garland &amp; bows</h3>
+        <div>
+          <p>Commercial-grade lit wreaths and garland for doors, gables, gates, fences, lamp posts and mailboxes, finished with weather-rated velvet bows. Supplied and installed, or we hang yours.</p>
+          <ul class="incl"><li>Lit &amp; unlit</li><li>Custom sizes</li><li>Gable-mounted</li></ul>
+        </div>
+      </div>
+      <div class="svc-row">
+        <h3>Ground displays &amp; motifs</h3>
+        <div>
+          <p>Pathway stakes, lit deer and sleighs, oversize ornaments, candy canes, 2D and 3D motifs, and inflatable placement and anchoring for anyone who wants the full front-yard treatment.</p>
+          <ul class="incl"><li>Pathway lighting</li><li>Motifs &amp; figures</li><li>Inflatable setup</li></ul>
+        </div>
+      </div>
+      <div class="svc-row">
+        <h3>Interior decorating</h3>
+        <div>
+          <p>Tree assembly and lighting, mantels, banisters, staircases and entry displays. Set up in November, dismantled and boxed in January.</p>
+          <ul class="incl"><li>Tree setup</li><li>Banisters &amp; mantels</li><li>Takedown included</li></ul>
+        </div>
+      </div>
+      <div class="svc-row">
+        <h3>Power &amp; controls</h3>
+        <div>
+          <p>Load-balanced circuits, weather-sealed connections, outdoor-rated extension runs, timers and smart plugs configured before we leave. No daisy-chained strands, no tripped breakers on December 1st.</p>
+          <ul class="incl"><li>Timers &amp; smart plugs</li><li>Load balancing</li><li>Sealed connectors</li></ul>
+        </div>
+      </div>
+      <div class="svc-row">
+        <h3>Service, takedown &amp; storage</h3>
+        <div>
+          <p>One call and we're back out for any outage during the season, at no charge. January takedown, then your lights are labelled, boxed and stored dry until next November so your garage stays yours.</p>
+          <ul class="incl"><li>Free in-season repairs</li><li>January removal</li><li>Labelled off-season storage</li></ul>
+        </div>
+      </div>
+      <div class="svc-row">
+        <h3>Repair of your own lights</h3>
+        <div>
+          <p>Already own a system and just need it hung, diagnosed or patched? We install customer-supplied lights and repair existing runs by the hour.</p>
+          <ul class="incl"><li>Install-only service</li><li>Strand diagnosis</li><li>Hourly rate</li></ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= PERMANENT ================= -->
+<section id="permanent" style="padding-top:0">
+  <div class="shell">
+    <div class="feature">
+      <div>
+        <p class="eyebrow">Permanent architectural lighting</p>
+        <h2>Install once. Light it for every holiday after that.</h2>
+        <p>A track of programmable RGB LEDs mounted under your soffit or fascia. Invisible from the street in daylight, and from an app it becomes warm white for everyday evenings, red and green in December, orange for Halloween, team colours on game day — no ladders, ever again.</p>
+        <ul>
+          <li>App-controlled from anywhere, with scheduling and scenes</li>
+          <li>Millions of colours, plus true warm white for everyday use</li>
+          <li>Music sync, animation and per-bulb addressing</li>
+          <li>Front elevation or full perimeter</li>
+          <li>Rated for Illinois winters — no seasonal removal</li>
+          <li>You own the hardware outright, with a parts warranty</li>
+        </ul>
+        <div class="hero-actions">
+          <a class="btn" href="#quote">Get a permanent lighting quote</a>
+        </div>
+      </div>
+      <div>
+        <p style="margin:0;color:var(--muted);font-size:16px">One system, every occasion:</p>
+        <div class="swatches">
+          <i style="background:#FFD79A"></i><i style="background:#E0534B"></i><i style="background:#4FA96B"></i><i style="background:#E8873A"></i>
+          <i style="background:#5D8FD6"></i><i style="background:#B96FC4"></i><i style="background:#F2D24B"></i><i style="background:#5FC9C4"></i>
+        </div>
+        <p style="color:var(--dim);font-size:15px;margin-top:18px">Everyday warm white · Christmas · St Patrick's · Halloween · Fourth of July · birthdays · game days · Diwali</p>
+        <p style="color:var(--muted);font-size:16px;margin-top:24px">Most front elevations run <strong style="color:var(--text)">$2,400 to $6,500</strong> installed. Full perimeter is quoted on site. Financing available.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= LANDSCAPE ================= -->
+<section id="landscape">
+  <div class="shell">
+    <div class="sec-head">
+      <p class="eyebrow">Landscape &amp; outdoor lighting</p>
+      <h2>The other nine months of the year</h2>
+      <p>Low-voltage systems that make the house look expensive after dark. Designed and installed by the same crew, on the same warranty.</p>
+    </div>
+    <div class="svc">
+      <div class="svc-row">
+        <h3>Path &amp; walkway</h3>
+        <div><p>Graded lighting along drives, walks, steps and garden beds — enough to see by, not enough to blind anyone. Fixtures chosen to survive a plough season.</p></div>
+      </div>
+      <div class="svc-row">
+        <h3>Architectural uplighting</h3>
+        <div><p>Wall washes, column grazing and facade accents that pick out brick, stone and rooflines. The single highest-impact thing you can do to a house after dark.</p></div>
+      </div>
+      <div class="svc-row">
+        <h3>Tree downlighting</h3>
+        <div><p>Fixtures mounted high in mature trees to cast dappled light onto lawns and patios. Reads as moonlight rather than as lighting.</p></div>
+      </div>
+      <div class="svc-row">
+        <h3>Deck, patio, pergola &amp; pool</h3>
+        <div><p>Step and riser lights, railing and under-cap runs, pergola and cafe strings, and pool and water-feature illumination.</p></div>
+      </div>
+      <div class="svc-row">
+        <h3>Transformers &amp; wiring</h3>
+        <div><p>Correctly sized transformers, buried low-voltage runs, timers, photocells and zone control. We fix undersized systems installed by other people, too.</p></div>
+      </div>
+      <div class="svc-row">
+        <h3>Annual service</h3>
+        <div><p>Spring realignment after frost heave, lamp replacement, lens cleaning, and adjustment as plantings grow in. Available as a yearly plan.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= COMMERCIAL ================= -->
+<section id="commercial" style="padding-top:0">
+  <div class="shell">
+    <div class="sec-head">
+      <p class="eyebrow">Commercial &amp; multi-property</p>
+      <h2>Retail, offices, HOAs and municipalities</h2>
+      <p>Certificates of insurance on request, scheduled installation windows, and a named contact who answers the phone in December.</p>
+    </div>
+    <div class="svc">
+      <div class="svc-row">
+        <h3>Storefronts &amp; retail centres</h3>
+        <div><p>Facade, canopy, entrance and parking-lot lighting coordinated across multiple tenants to a single design standard.</p></div>
+      </div>
+      <div class="svc-row">
+        <h3>Large &amp; tower trees</h3>
+        <div><p>Specimen and courtyard trees wrapped from a lift, plus modular tower trees for plazas and entrances. Installed, maintained and removed.</p></div>
+      </div>
+      <div class="svc-row">
+        <h3>Custom displays &amp; motifs</h3>
+        <div><p>Pole-mounted motifs, oversize wreaths and garland, lit signage and bespoke display fabrication for anyone who wants something nobody else has.</p></div>
+      </div>
+      <div class="svc-row">
+        <h3>HOAs &amp; residential communities</h3>
+        <div><p>Entrance monuments, common areas and clubhouses under one contract, with a resident discount programme for homes inside the association.</p></div>
+      </div>
+      <div class="svc-row">
+        <h3>Multi-site programmes</h3>
+        <div><p>Consistent installation across every location on your portfolio, with a single invoice, one point of contact and documented maintenance response times.</p></div>
+      </div>
+      <div class="svc-row">
+        <h3>Events &amp; weddings</h3>
+        <div><p>Cafe and bistro strings, marquee and tent lighting, uplighting and temporary power for private events, venues and seasonal markets.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= HOW ================= -->
+<section style="padding-top:0">
+  <div class="shell">
+    <div class="sec-head">
+      <p class="eyebrow">How it works</p>
+      <h2>Six steps, and you're only present for the first</h2>
+    </div>
+    <div class="steps">
+      <div class="step"><b>1</b><h3>Free design visit</h3><p>We measure your roofline, count stories, check pitch and find your outlets. Takes about twenty minutes and costs nothing.</p></div>
+      <div class="step"><b>2</b><h3>Fixed written quote</h3><p>A real number, not a range. Priced by linear foot so you can see exactly what each addition costs.</p></div>
+      <div class="step"><b>3</b><h3>Book with 25% deposit</h3><p>Deposit reserves your install week and your product. Book before October 15 for the early rate.</p></div>
+      <div class="step"><b>4</b><h3>Installation</h3><p>Installs run from early November. One crew, usually one day. Lit and timer-set before we leave.</p></div>
+      <div class="step"><b>5</b><h3>In-season service</h3><p>Anything goes out, we come back. No charge, no argument, for the whole season.</p></div>
+      <div class="step"><b>6</b><h3>Takedown &amp; storage</h3><p>Removed in January, labelled, boxed and stored dry until next year. Nothing lives in your garage.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= PRICING ================= -->
+<section id="pricing" style="padding-top:0">
+  <div class="shell">
+    <div class="sec-head">
+      <p class="eyebrow">What it costs</p>
+      <h2>Real numbers, before you pick up the phone</h2>
+      <p>Every other company in this market makes you book a sales visit to find out whether you can afford them. Here are the ranges. Your exact price depends on linear feet, stories, pitch and how much of the yard you want included.</p>
+    </div>
+    <div class="price-grid">
+      <div class="price-card">
+        <h3>Single storey, roofline only</h3>
+        <span class="num">$900+</span>
+        <p>Ranch and split-level homes, front elevation, warm white C9 on a timer.</p>
+      </div>
+      <div class="price-card lead">
+        <h3>Most homes</h3>
+        <span class="num">$1,500 – $2,500</span>
+        <p>Two storey, roofline plus columns, shrubs or window framing. Service, takedown and storage included.</p>
+      </div>
+      <div class="price-card">
+        <h3>Larger &amp; estate homes</h3>
+        <span class="num">$3,000+</span>
+        <p>Extended rooflines, multiple elevations, specimen trees and full landscape integration.</p>
+      </div>
+    </div>
+    <p class="price-note"><strong>Return customers pay 30% less.</strong> You own the hardware after year one, so the second season is labour only — and that discount is written onto your first invoice, not promised verbally. Permanent lighting starts at $2,400 for a front elevation; landscape systems typically start around $1,800. Financing is available on permanent and landscape work. <a href="products.html" style="color:var(--glow)">See every product and its per-foot price</a>.</p>
+  </div>
+</section>
+
+<!-- ================= TRUST ================= -->
+<section style="padding-top:0">
+  <div class="shell">
+    <div class="sec-head">
+      <p class="eyebrow">Why us</p>
+      <h2>The parts that matter when someone is on a ladder above your house</h2>
+    </div>
+    <div class="trust">
+      <div><h3>Insured for work at height</h3><p>General liability with a height-work endorsement specifically in force. Most standard contractor policies exclude work above 10 to 15 feet — ask any competitor to show you theirs.</p></div>
+      <div><h3>We never walk your roof</h3><p>Ladder-only installation is a hard rule for our crews. It's slower. It's also why your shingles, gutters and flashing look the same in January as they did in November.</p></div>
+      <div><h3>Our own crews, not day labour</h3><p>Trained, background-checked, paid by the day rather than the job — so nobody has a financial reason to rush on a frozen ladder.</p></div>
+      <div><h3>Commercial-grade product only</h3><p>Sealed C9 and C7 LED on SPT wire rated for Illinois winters, not big-box retail strands that fail in the first hard freeze.</p></div>
+      <div><h3>Non-invasive fastening</h3><p>Ridge and gutter clips throughout. No staples, no nails, no adhesive, no holes in your fascia or trim.</p></div>
+      <div><h3>Locally owned and answered</h3><p>Not a franchise. When you call in December you get the person who quoted your house, not a national call centre.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= AREA ================= -->
+<section style="padding-top:0">
+  <div class="shell">
+    <div class="sec-head">
+      <p class="eyebrow">Service area</p>
+      <h2>Southwest suburbs, and the towns next door</h2>
+      <p>We keep our routes tight so crews spend the day on ladders instead of on I-355. Core towns are highlighted — if you're just outside, call anyway.</p>
+    </div>
+    <ul class="area">
+      <li class="core">Orland Park</li><li class="core">Palos Park</li><li class="core">Palos Heights</li>
+      <li class="core">Homer Glen</li><li class="core">Lemont</li><li class="core">Frankfort</li>
+      <li>Burr Ridge</li><li>Western Springs</li><li>La Grange</li><li>Willowbrook</li>
+      <li>Darien</li><li>Lockport</li><li>Mokena</li><li>Tinley Park</li><li>New Lenox</li>
+      <li>Hinsdale</li><li>Oak Brook</li><li>Downers Grove</li><li>Naperville</li>
+    </ul>
+  </div>
+</section>
+
+<!-- ================= FAQ ================= -->
+<section style="padding-top:0">
+  <div class="shell">
+    <div class="sec-head">
+      <p class="eyebrow">Questions</p>
+      <h2>The ones people actually ask</h2>
+    </div>
+    <details open><summary>Who owns the lights?</summary><p>You do. The hardware is yours after the first season, which is why year two costs 30% less — you're paying for labour, not product. We store it for you at no charge between seasons.</p></details>
+    <details><summary>When should I book?</summary><p>September and October. Installation weeks fill in the order deposits arrive, and the early rate closes October 15. By late November we're generally booked and quoting for the following year.</p></details>
+    <details><summary>What if a section goes dark in December?</summary><p>Call us and we come out. No charge, for the whole season, however many times it happens. It's included in every package rather than sold as a maintenance add-on.</p></details>
+    <details><summary>Will this damage my roof or gutters?</summary><p>No. We use non-invasive ridge and gutter clips exclusively — no staples, nails or adhesive — and our crews work from ladders rather than walking on your roof.</p></details>
+    <details><summary>Can you work on a steep or three-storey roof?</summary><p>Often, yes, and we'll tell you honestly on the design visit if we can't. Some pitches aren't safely reachable from a ladder, and we'd rather decline the job than put someone on a 12/12 in December.</p></details>
+    <details><summary>Do I have to be home for the install?</summary><p>No. Once the design is approved we only need access to an exterior outlet. Most customers come home to a finished house.</p></details>
+    <details><summary>Is permanent lighting worth it over seasonal?</summary><p>If you plan to light your house for more than three or four seasons, the maths usually favours permanent — you stop paying labour every year and it works for every holiday, not just December. We'll run both numbers for you side by side.</p></details>
+    <details><summary>Do you do commercial work?</summary><p>Yes, including certificates of insurance, scheduled install windows and multi-site contracts. Commercial quoting starts in August, so reach out early.</p></details>
+  </div>
+</section>
+
+<!-- ================= QUOTE ================= -->
+<section id="quote" style="padding-top:0">
+  <div class="shell">
+    <div class="quote">
+      <div>
+        <h2>Book your free design visit</h2>
+        <p class="sub">Twenty minutes on site, a fixed written quote within 48 hours, and no obligation. Tell us roughly what you're after and we'll bring options.</p>
+        <p class="sub" style="font-size:16px">Prefer to talk? <a href="tel:+1312XXXXXXX" style="color:var(--glow);text-decoration:none;font-weight:600">(312) XXX-XXXX</a><br>hello@ridgelinelighting.co</p>
+      </div>
+      <form class="fields" id="qf" novalidate>
+        <label>Name<input name="name" required autocomplete="name"></label>
+        <label>Phone<input name="phone" type="tel" required autocomplete="tel"></label>
+        <label class="wide">Email<input name="email" type="email" required autocomplete="email"></label>
+        <label>Town<input name="town" autocomplete="address-level2"></label>
+        <label>Home type
+          <select name="type">
+            <option>Single storey / ranch</option>
+            <option selected>Two storey</option>
+            <option>Three storey</option>
+            <option>Townhouse</option>
+            <option>Commercial property</option>
+          </select>
+        </label>
+        <label class="wide">What are you interested in?
+          <select name="service">
+            <option>Holiday lighting — roofline</option>
+            <option>Holiday lighting — full package</option>
+            <option>Permanent programmable lighting</option>
+            <option>Landscape / outdoor lighting</option>
+            <option>Commercial or multi-property</option>
+            <option>Event lighting</option>
+            <option>Not sure yet — advise me</option>
+          </select>
+        </label>
+        <label class="wide">Anything else<textarea name="notes" placeholder="Rooflines, trees, columns, a photo of last year — whatever helps."></textarea></label>
+        <div class="form-foot">
+          <button class="btn btn-lg" type="submit">Request my design visit</button>
+          <small>No deposit, no obligation. We reply within one business day.</small>
+        </div>
+        <p id="sent" hidden>Thanks — request received. We'll be in touch within one business day.</p>
+      </form>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="shell">
+    <div class="foot-grid">
+      <div>
+        <a class="brand" href="#top" style="margin-bottom:14px"><span class="dot"></span>Ridgeline Lighting Co.</a>
+        <p style="max-width:40ch;margin:0">Holiday, permanent and landscape lighting for Chicago's southwest suburbs. Licensed and insured, with a height-work endorsement in force.</p>
+      </div>
+      <div>
+        <h4>Services</h4>
+        <ul>
+          <li><a href="#holiday">Holiday lighting</a></li>
+          <li><a href="#permanent">Permanent lighting</a></li>
+          <li><a href="#landscape">Landscape lighting</a></li>
+          <li><a href="#commercial">Commercial</a></li>
+          <li><a href="products.html">Products &amp; pricing</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Contact</h4>
+        <ul>
+          <li><a href="tel:+1312XXXXXXX">(312) XXX-XXXX</a></li>
+          <li><a href="mailto:hello@ridgelinelighting.co">hello@ridgelinelighting.co</a></li>
+          <li><a href="#quote">Free design visit</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="legal">© <span id="yr">2026</span> Ridgeline Lighting Co. Prices shown are typical ranges, not quotes.</div>
+  </div>
+</footer>
+
+<script>
+  document.getElementById('yr').textContent = new Date().getFullYear();
+
+  var root = document.documentElement, tb = document.getElementById('t');
+  tb.addEventListener('click', function(){
+    var next = root.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+    root.setAttribute('data-theme', next);
+    tb.textContent = next === 'dark' ? '☀' : '☾';
+  });
+
+  document.getElementById('qf').addEventListener('submit', function(e){
+    e.preventDefault();
+    var f = e.target;
+    if(!f.name.value.trim() || !f.phone.value.trim() || !f.email.value.trim()){
+      alert('Please add your name, phone and email so we can reach you.');
+      return;
+    }
+    document.getElementById('sent').hidden = false;
+    f.querySelector('button[type=submit]').disabled = true;
+  });
+
+/* ===== zig-zag background string lights ===== */
+(function(){
+  var NS = 'http://www.w3.org/2000/svg';
+  var COLORS = [
+    ['#E5484D','#FF9DA0'], /* red    */
+    ['#46A758','#8FE8A4'], /* green  */
+    ['#4A8FE0','#9CCBFF'], /* blue   */
+    ['#F5C33B','#FFE596'], /* gold   */
+    ['#A66FD4','#DCB8F7'], /* purple */
+    ['#FFD79A','#FFF1DC']  /* warm   */
+  ];
+  var ROW_GAP = 190;
+  var layer = document.querySelector('.xlights');
+  if(!layer) return;
+
+  var rnd = function(a, b){ return a + Math.random() * (b - a); };
+
+  /* every strand gets its own period, droop, phase, drift and tilt, plus a
+     second out-of-step harmonic, so no two runs ever line up */
+  function strand(baseY){
+    return {
+      y:  baseY,
+      p1: rnd(150, 300), a1: rnd(14, 44), f1: rnd(0, Math.PI * 2),
+      p2: rnd(340, 780), a2: rnd(8, 26),  f2: rnd(0, Math.PI * 2),
+      tilt: rnd(-0.075, 0.075),
+      gap:  rnd(23, 42)
+    };
+  }
+
+  function zig(x, s){
+    return s.y
+      + s.tilt * x
+      - s.a1 * Math.cos(2 * Math.PI * x / s.p1 + s.f1)
+      - s.a2 * Math.cos(2 * Math.PI * x / s.p2 + s.f2);
+  }
+
+  function build(){
+    var W = window.innerWidth, H = window.innerHeight;
+    var svg = document.createElementNS(NS,'svg');
+    svg.setAttribute('width', W);
+    svg.setAttribute('height', H);
+    svg.setAttribute('viewBox', '0 0 ' + W + ' ' + H);
+
+    var defs = document.createElementNS(NS,'defs');
+    COLORS.forEach(function(c,i){
+      var g = document.createElementNS(NS,'radialGradient');
+      g.setAttribute('id','xg'+i);
+      var s1 = document.createElementNS(NS,'stop');
+      s1.setAttribute('offset','0%'); s1.setAttribute('stop-color',c[1]); s1.setAttribute('stop-opacity','.65');
+      var s2 = document.createElementNS(NS,'stop');
+      s2.setAttribute('offset','100%'); s2.setAttribute('stop-color',c[0]); s2.setAttribute('stop-opacity','0');
+      g.appendChild(s1); g.appendChild(s2); defs.appendChild(g);
+    });
+    svg.appendChild(defs);
+
+    var rows = Math.max(3, Math.ceil(H / ROW_GAP) + 2);
+    var cursor = rnd(-30, 30);
+
+    for(var r = 0; r < rows; r++){
+      cursor += rnd(ROW_GAP * 0.55, ROW_GAP * 1.45);
+      var s = strand(cursor);
+
+      /* the wire */
+      var pts = [];
+      for(var vx = -60; vx <= W + 60; vx += 5){
+        pts.push(vx + ',' + zig(vx, s).toFixed(1));
+      }
+      var wire = document.createElementNS(NS,'polyline');
+      wire.setAttribute('points', pts.join(' '));
+      wire.setAttribute('fill','none');
+      wire.setAttribute('stroke','var(--xwire)');
+      wire.setAttribute('stroke-width', rnd(1.2, 1.9).toFixed(2));
+      svg.appendChild(wire);
+
+      /* the bulbs */
+      for(var x = rnd(-10, 18); x < W + 20; x += s.gap * rnd(0.82, 1.24)){
+        var y = zig(x, s);
+        var gi = Math.floor(Math.random() * COLORS.length);
+        var c = COLORS[gi];
+        var sz = rnd(0.82, 1.22);
+
+        var g = document.createElementNS(NS,'g');
+        g.setAttribute('class','xb');
+        g.style.animationDuration = (2.2 + Math.random() * 4.4).toFixed(2) + 's';
+        g.style.animationDelay = (-Math.random() * 6).toFixed(2) + 's';
+
+        var halo = document.createElementNS(NS,'circle');
+        halo.setAttribute('cx', x.toFixed(1)); halo.setAttribute('cy', y.toFixed(1));
+        halo.setAttribute('r', (13 * sz).toFixed(1));
+        halo.setAttribute('fill','url(#xg' + gi + ')');
+
+        var cap = document.createElementNS(NS,'rect');
+        cap.setAttribute('x', (x - 2.4 * sz).toFixed(1)); cap.setAttribute('y', (y - 5.6 * sz).toFixed(1));
+        cap.setAttribute('width', (4.8 * sz).toFixed(1)); cap.setAttribute('height', (3.4 * sz).toFixed(1));
+        cap.setAttribute('rx', 1);
+        cap.setAttribute('fill','var(--xwire)');
+
+        var core = document.createElementNS(NS,'circle');
+        core.setAttribute('cx', x.toFixed(1)); core.setAttribute('cy', (y + 0.6 * sz).toFixed(1));
+        core.setAttribute('r', (3.4 * sz).toFixed(1));
+        core.setAttribute('fill', c[0]);
+
+        var hot = document.createElementNS(NS,'circle');
+        hot.setAttribute('cx', (x - 1 * sz).toFixed(1)); hot.setAttribute('cy', (y - 0.6 * sz).toFixed(1));
+        hot.setAttribute('r', (1.2 * sz).toFixed(1));
+        hot.setAttribute('fill', c[1]);
+
+        g.appendChild(halo); g.appendChild(cap); g.appendChild(core); g.appendChild(hot);
+        svg.appendChild(g);
+      }
+    }
+
+    layer.innerHTML = '';
+    layer.appendChild(svg);
+  }
+
+  build();
+  var t;
+  window.addEventListener('resize', function(){
+    clearTimeout(t);
+    t = setTimeout(build, 220);
+  });
+})();
+</script>
+</body>
+</html>

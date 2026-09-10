@@ -1,0 +1,874 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="utf-8">
+<meta name="robots" content="noindex, nofollow">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Products &amp; Pricing — Every Light We Install | Ridgeline Lighting Co.</title>
+<meta name="description" content="The full catalogue: C9, C7, 5mm, M5, icicle and net LED lighting, permanent RGB systems, landscape fixtures and hardware — with per-foot installed pricing and an instant roofline estimator.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#080E17; --surface:#111C2B; --surface-2:#0C1521;
+  --rule:#1F2E40; --rule-soft:#16222F;
+  --text:#E8EEF5; --muted:#8CA0B4; --dim:#63788C;
+  --glow:#FFC468; --glow-2:#FFE3B0; --glow-soft:rgba(255,196,104,.14);
+  --rgb:#63B3E8; --rgb-soft:rgba(99,179,232,.14);
+  --shell:1120px;
+}
+html[data-theme="light"]{
+  --bg:#EDF1F6; --surface:#FFFFFF; --surface-2:#F6F9FB;
+  --rule:#D5DEE7; --rule-soft:#E5EBF1;
+  --text:#0A111C; --muted:#4F6178; --dim:#77899D;
+  --glow:#A0640A; --glow-2:#C4861F; --glow-soft:rgba(160,100,10,.11);
+  --rgb:#1B6DA6; --rgb-soft:rgba(27,109,166,.11);
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--text);
+  font-family:"Instrument Sans",system-ui,-apple-system,sans-serif;
+  font-size:17px;line-height:1.6;-webkit-font-smoothing:antialiased}
+.shell{max-width:var(--shell);margin:0 auto;padding:0 28px}
+a{color:inherit}
+h1,h2,h3,h4{margin:0;letter-spacing:-.02em}
+.serif{font-family:"Instrument Serif",Georgia,serif;font-weight:400}
+:focus-visible{outline:2px solid var(--glow);outline-offset:3px;border-radius:3px}
+
+/* nav */
+nav{position:sticky;top:0;z-index:50;background:color-mix(in srgb,var(--bg) 88%,transparent);
+    backdrop-filter:blur(12px);border-bottom:1px solid var(--rule-soft)}
+.nav-in{display:flex;align-items:center;gap:32px;height:70px;max-width:var(--shell);margin:0 auto;padding:0 28px}
+.brand{display:flex;align-items:center;gap:10px;font-size:19px;font-weight:600;text-decoration:none;white-space:nowrap}
+.brand .dot{width:9px;height:9px;border-radius:50%;background:var(--glow);
+  box-shadow:0 0 10px 2px var(--glow-soft),0 0 22px 6px var(--glow-soft)}
+.nav-links{display:flex;gap:26px;margin-left:auto;font-size:15px}
+.nav-links a{color:var(--muted);text-decoration:none}
+.nav-links a:hover,.nav-links a.on{color:var(--text)}
+.nav-cta{display:flex;align-items:center;gap:14px}
+.tel{font-size:15px;font-weight:600;text-decoration:none;white-space:nowrap}
+button.theme{background:none;border:1px solid var(--rule);color:var(--dim);border-radius:999px;
+  width:34px;height:34px;font:inherit;font-size:14px;cursor:pointer;flex:none;line-height:1}
+button.theme:hover{color:var(--glow);border-color:var(--glow)}
+.btn{display:inline-block;text-decoration:none;font-weight:600;font-size:15px;padding:11px 20px;
+  border-radius:7px;background:var(--glow);color:#150E02;white-space:nowrap;border:none;cursor:pointer;font-family:inherit}
+html[data-theme="light"] .btn{color:#FFF8EC}
+.btn:hover{filter:brightness(1.1)}
+.btn-ghost{background:none;border:1px solid var(--rule);color:var(--text)}
+.btn-ghost:hover{border-color:var(--glow);color:var(--glow);filter:none}
+.btn-lg{font-size:16.5px;padding:14px 26px}
+
+/* page head */
+.phead{padding:64px 0 40px}
+.phead h1{font-size:clamp(38px,5.6vw,64px);line-height:1.03;max-width:20ch}
+.phead p{margin:22px 0 0;color:var(--muted);font-size:19px;max-width:56ch}
+
+/* ===== estimator ===== */
+.est{background:var(--surface);border:1px solid var(--rule);border-radius:16px;overflow:hidden;
+  display:grid;grid-template-columns:1.25fr .85fr}
+.est-form{padding:36px 38px}
+.est-form h2{font-size:26px}
+.est-form>p{color:var(--muted);font-size:16px;margin:10px 0 26px}
+.fld{margin-bottom:20px}
+.fld>label{display:block;font-size:14px;color:var(--muted);margin-bottom:7px}
+input[type=number],select{font:inherit;font-size:16px;padding:11px 13px;border-radius:7px;width:100%;
+  background:var(--surface-2);border:1px solid var(--rule);color:var(--text)}
+input[type=range]{width:100%;accent-color:var(--glow)}
+.rangeline{display:flex;justify-content:space-between;font-size:13.5px;color:var(--dim);margin-top:4px}
+.feet-val{font-family:"Instrument Serif",serif;font-size:30px;line-height:1;color:var(--glow)}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.checks{display:grid;grid-template-columns:1fr 1fr;gap:9px}
+.chk{display:flex;align-items:center;gap:9px;font-size:15px;color:var(--text);
+  border:1px solid var(--rule);background:var(--surface-2);border-radius:7px;padding:9px 12px;cursor:pointer}
+.chk input{accent-color:var(--glow);margin:0}
+.qty{display:flex;align-items:center;justify-content:space-between;gap:10px;font-size:15px;
+  border:1px solid var(--rule);background:var(--surface-2);border-radius:7px;padding:7px 12px}
+.qty input{width:62px;padding:6px 8px;font-size:15px}
+.est-out{background:var(--surface-2);padding:36px 34px;border-left:1px solid var(--rule);
+  display:flex;flex-direction:column;justify-content:center}
+.est-out .lab{font-size:14px;color:var(--muted)}
+.est-out .big{font-family:"Instrument Serif",serif;font-size:clamp(34px,4.4vw,50px);line-height:1.05;
+  color:var(--glow);margin:8px 0 4px}
+.est-out .per{font-size:15px;color:var(--dim);margin:0 0 22px}
+.breakdown{list-style:none;margin:0 0 22px;padding:0;font-size:15px;display:grid;gap:8px}
+.breakdown li{display:flex;justify-content:space-between;gap:14px;color:var(--muted);
+  padding-bottom:8px;border-bottom:1px solid var(--rule-soft)}
+.breakdown li b{color:var(--text);font-weight:600}
+.breakdown li.tot{border-bottom:none;color:var(--text);font-size:16px}
+.est-out small{color:var(--dim);font-size:13.5px;display:block;margin-top:16px}
+
+/* sections */
+section{padding:88px 0}
+.sec-head{max-width:62ch;margin-bottom:42px}
+.eyebrow{font-size:14px;color:var(--glow);margin:0 0 12px;font-weight:600}
+.sec-head h2{font-size:clamp(28px,3.9vw,42px);line-height:1.08}
+.sec-head p{margin:16px 0 0;color:var(--muted);font-size:17.5px}
+
+/* bulb scale */
+.scale-wrap{background:var(--surface-2);border:1px solid var(--rule);border-radius:14px;padding:34px 30px}
+.scale-wrap svg{display:block;width:100%;height:auto;max-width:820px;margin:0 auto}
+.scale-note{margin:20px auto 0;max-width:70ch;text-align:center;color:var(--dim);font-size:15px}
+
+/* spacing demo */
+.spacing{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.sp{border:1px solid var(--rule);border-radius:12px;padding:24px;background:var(--surface-2)}
+.sp h3{font-size:18px;font-weight:600}
+.sp .bar{position:relative;height:34px;margin:18px 0 14px;border-bottom:1px solid var(--rule)}
+.sp .bar i{position:absolute;bottom:-4px;width:9px;height:9px;border-radius:50%;background:var(--glow);
+  box-shadow:0 0 8px 2px var(--glow-soft)}
+.sp p{margin:0;font-size:15px;color:var(--muted)}
+
+/* colour temps */
+.temps{display:grid;grid-template-columns:repeat(5,1fr);gap:14px}
+.temp{border:1px solid var(--rule);border-radius:10px;overflow:hidden;background:var(--surface-2)}
+.temp .sw{height:76px;display:block}
+.temp div{padding:14px 16px}
+.temp b{display:block;font-size:15.5px}
+.temp span{font-size:13.5px;color:var(--dim)}
+
+/* catalogue table */
+.cat{border-top:1px solid var(--rule);margin-top:8px}
+.cat-row{display:grid;grid-template-columns:1.4fr 1.6fr 200px;gap:32px;padding:24px 0;
+  border-bottom:1px solid var(--rule-soft);align-items:start}
+.cat-row h3{font-size:19px;font-weight:600}
+.cat-row .sku{display:block;font-size:13.5px;color:var(--dim);margin-top:3px}
+.cat-row p{margin:0;color:var(--muted);font-size:16px}
+.spec{display:flex;flex-wrap:wrap;gap:6px;margin:11px 0 0;padding:0;list-style:none}
+.spec li{font-size:13px;color:var(--muted);border:1px solid var(--rule-soft);
+  background:var(--surface-2);border-radius:5px;padding:3px 9px}
+.rate{text-align:right}
+.rate b{display:block;font-family:"Instrument Serif",serif;font-size:26px;color:var(--glow);line-height:1.1}
+.rate span{font-size:13.5px;color:var(--dim)}
+.cat-row.rgbrow .rate b{color:var(--rgb)}
+
+/* included */
+.incl-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:0 44px}
+.incl-grid div{padding:20px 0;border-top:1px solid var(--rule-soft)}
+.incl-grid h3{font-size:16.5px;font-weight:600}
+.incl-grid p{margin:5px 0 0;color:var(--muted);font-size:15.5px}
+
+/* callout */
+.callout{margin-top:36px;padding:26px 30px;border-left:2px solid var(--glow);background:var(--surface-2);
+  border-radius:0 10px 10px 0;color:var(--muted);font-size:16.5px;max-width:78ch}
+.callout strong{color:var(--text);font-weight:600}
+
+/* cta */
+.cta{background:var(--surface);border:1px solid var(--rule);border-radius:16px;padding:44px 48px;text-align:center}
+.cta h2{font-size:clamp(27px,3.5vw,38px);line-height:1.1}
+.cta p{color:var(--muted);margin:16px auto 28px;max-width:56ch}
+
+footer{border-top:1px solid var(--rule);padding:44px 0 60px;color:var(--dim);font-size:15px}
+footer a{text-decoration:none;color:var(--dim)}
+footer a:hover{color:var(--glow)}
+
+@media (max-width:980px){
+  .est{grid-template-columns:1fr}
+  .est-out{border-left:none;border-top:1px solid var(--rule)}
+  .spacing,.temps,.incl-grid{grid-template-columns:1fr}
+  .cat-row{grid-template-columns:1fr;gap:10px}
+  .rate{text-align:left}
+  .nav-links{display:none}
+  .est-form,.est-out,.cta{padding:30px 24px}
+  section{padding:64px 0}
+}
+@media (max-width:560px){
+  .two,.checks{grid-template-columns:1fr}
+  .tel{display:none}
+}
+/* ============ background string lights ============ */
+.xlights{position:fixed;inset:0;z-index:0;pointer-events:none;overflow:hidden;
+  opacity:.5;--xwire:#22323F}
+html[data-theme="light"] .xlights{opacity:.38;--xwire:#AEBDCA}
+.xlights svg{display:block}
+.shell,section,footer{position:relative;z-index:1}
+.xb{animation-name:flick;animation-iteration-count:infinite;animation-timing-function:ease-in-out}
+@keyframes flick{
+  0%,100%{opacity:1}
+  36%{opacity:.42}
+  54%{opacity:.94}
+  71%{opacity:.28}
+  87%{opacity:.86}
+}
+@media (prefers-reduced-motion:reduce){.xb{animation:none;opacity:.9}}
+</style>
+</head>
+<body>
+
+<div class="xlights" aria-hidden="true"></div>
+
+<nav>
+  <div class="nav-in">
+    <a class="brand" href="index.html"><span class="dot"></span>Ridgeline Lighting Co.</a>
+    <div class="nav-links">
+      <a href="index.html#holiday">Holiday</a>
+      <a href="index.html#permanent">Permanent</a>
+      <a href="index.html#landscape">Landscape</a>
+      <a class="on" href="products.html">Products</a>
+      <a href="#estimator">Estimator</a>
+    </div>
+    <div class="nav-cta">
+      <a class="tel" href="tel:+1312XXXXXXX">(312) XXX-XXXX</a>
+      <a class="btn" href="index.html#quote">Free design visit</a>
+      <button class="theme" id="t" aria-label="Switch between dark and light">☀</button>
+    </div>
+  </div>
+</nav>
+
+<div class="shell">
+  <div class="phead">
+    <h1>Every light we install, and what it costs <span class="serif">per foot.</span></h1>
+    <p>Commercial-grade product from Wintergreen Lighting, OptiCore and Kringle Traditions — sealed one-piece construction, colour-matched LEDs, rated for a Chicago winter. Prices below are installed, including clips, wire, connectors, timer, in-season service, takedown and storage.</p>
+  </div>
+</div>
+
+<!-- ================= ESTIMATOR ================= -->
+<div class="shell" id="estimator">
+  <div class="est">
+    <div class="est-form">
+      <h2>Estimate your house right now</h2>
+      <p>No form, no sales call, no waiting. Move the slider and the number updates. Every competitor in this market makes you book a visit to learn this.</p>
+
+      <div class="fld">
+        <label for="feet">Roofline to be lit — <span class="feet-val" id="feetOut">280</span> linear feet</label>
+        <input type="range" id="feet" min="60" max="800" step="10" value="280">
+        <div class="rangeline"><span>60 ft</span><span>Typical two-storey front: 180–320 ft</span><span>800 ft</span></div>
+      </div>
+
+      <div class="fld two">
+        <div>
+          <label for="prod">Bulb style</label>
+          <select id="prod">
+            <option value="4.5">5mm wide-angle — subtle, modern</option>
+            <option value="4.8">M5 mini — fine detail</option>
+            <option value="5.6">C7 — classic, medium</option>
+            <option value="6.4" selected>C9 — classic, boldest</option>
+            <option value="7.4">C9 OptiCore commercial — brightest</option>
+            <option value="7.9">Icicle — hanging drop effect</option>
+            <option value="22">Permanent RGB track — year-round</option>
+          </select>
+        </div>
+        <div>
+          <label for="colour">Colour</label>
+          <select id="colour">
+            <option value="1">Warm white</option>
+            <option value="1">Cool white</option>
+            <option value="1.04">Multicolour</option>
+            <option value="1.04">Red &amp; warm white</option>
+            <option value="1.06">Custom two-tone pattern</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="fld two">
+        <div>
+          <label for="stories">Height</label>
+          <select id="stories">
+            <option value="1">Single storey / ranch</option>
+            <option value="1.18" selected>Two storey</option>
+            <option value="1.4">Three storey</option>
+          </select>
+        </div>
+        <div>
+          <label for="pitch">Roof pitch</label>
+          <select id="pitch">
+            <option value="1">Shallow (walkable)</option>
+            <option value="1.08" selected>Moderate</option>
+            <option value="1.22">Steep</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="fld">
+        <label>Add to the design</label>
+        <div class="checks">
+          <div class="qty"><span>Column wraps</span><input type="number" id="col" min="0" max="12" value="0"></div>
+          <div class="qty"><span>Shrubs / hedges</span><input type="number" id="shr" min="0" max="30" value="0"></div>
+          <div class="qty"><span>Window frames</span><input type="number" id="win" min="0" max="24" value="0"></div>
+          <div class="qty"><span>Wrapped trees</span><input type="number" id="tre" min="0" max="12" value="0"></div>
+          <div class="qty"><span>Lit wreaths</span><input type="number" id="wre" min="0" max="10" value="0"></div>
+          <div class="qty"><span>Pathway stakes (ft)</span><input type="number" id="pat" min="0" max="400" step="10" value="0"></div>
+        </div>
+      </div>
+
+      <label class="chk" style="margin-top:4px">
+        <input type="checkbox" id="early" checked>
+        <span>Book before October 15 — early rate, 8% off</span>
+      </label>
+    </div>
+
+    <div class="est-out">
+      <span class="lab">Estimated installed price, season one</span>
+      <div class="big" id="total">$1,980 – $2,180</div>
+      <p class="per" id="perft">about $6.90 per linear foot</p>
+      <ul class="breakdown">
+        <li><span id="lblRoof">Roofline — C9, 280 ft</span><b id="valRoof">$1,930</b></li>
+        <li><span>Design, clips, wire, timer</span><b>included</b></li>
+        <li><span>Additions</span><b id="valAdd">$0</b></li>
+        <li><span>In-season service, takedown, storage</span><b>included</b></li>
+        <li class="tot"><span>Year two, same design</span><b id="valY2">$1,390</b></li>
+      </ul>
+      <a class="btn btn-lg" href="index.html#quote">Lock this in with a design visit</a>
+      <small>An estimate, not a quote. Final price is set on site after we measure. A $900 minimum applies to any install.</small>
+    </div>
+  </div>
+</div>
+
+<!-- ================= BULB SCALE ================= -->
+<section>
+  <div class="shell">
+    <div class="sec-head">
+      <p class="eyebrow">Choosing a bulb</p>
+      <h2>Actual sizes, side by side</h2>
+      <p>Drawn to true relative scale. From the street, bulb size matters more than colour — a C9 reads as a decorated house from three doors down, while 5mm reads as a clean outline from the kerb.</p>
+    </div>
+    <div class="scale-wrap">
+      <svg viewBox="0 0 820 250" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Bulb sizes compared at true relative scale">
+        <defs>
+          <radialGradient id="g"><stop offset="0%" stop-color="#FFC468" stop-opacity=".5"/><stop offset="100%" stop-color="#FFC468" stop-opacity="0"/></radialGradient>
+        </defs>
+        <!-- baseline -->
+        <line x1="30" y1="190" x2="790" y2="190" stroke="#1F2E40"/>
+
+        <!-- C9: 1.25in dia => 62px at 50px/in -->
+        <g>
+          <circle cx="88" cy="150" r="58" fill="url(#g)"/>
+          <path d="M88 190 C58 190 58 152 63 136 C68 120 78 106 88 100 C98 106 108 120 113 136 C118 152 118 190 88 190Z" fill="#FFD79A"/>
+          <rect x="76" y="188" width="24" height="14" rx="2" fill="#2A3D53"/>
+          <text x="88" y="228" fill="#E8EEF5" font-size="15" font-family="Instrument Sans,sans-serif" font-weight="600" text-anchor="middle">C9</text>
+          <text x="88" y="245" fill="#63788C" font-size="12.5" font-family="Instrument Sans,sans-serif" text-anchor="middle">1.25 in</text>
+        </g>
+        <!-- C7: 0.875in => 44px -->
+        <g>
+          <circle cx="210" cy="160" r="42" fill="url(#g)"/>
+          <path d="M210 190 C189 190 189 162 193 150 C197 138 204 128 210 124 C216 128 223 138 227 150 C231 162 231 190 210 190Z" fill="#FFD79A"/>
+          <rect x="201" y="188" width="18" height="12" rx="2" fill="#2A3D53"/>
+          <text x="210" y="228" fill="#E8EEF5" font-size="15" font-family="Instrument Sans,sans-serif" font-weight="600" text-anchor="middle">C7</text>
+          <text x="210" y="245" fill="#63788C" font-size="12.5" font-family="Instrument Sans,sans-serif" text-anchor="middle">0.88 in</text>
+        </g>
+        <!-- G30 globe: 1.18in => 59px -->
+        <g>
+          <circle cx="332" cy="155" r="52" fill="url(#g)"/>
+          <circle cx="332" cy="160" r="29" fill="#FFD79A"/>
+          <rect x="323" y="186" width="18" height="14" rx="2" fill="#2A3D53"/>
+          <text x="332" y="228" fill="#E8EEF5" font-size="15" font-family="Instrument Sans,sans-serif" font-weight="600" text-anchor="middle">G30 globe</text>
+          <text x="332" y="245" fill="#63788C" font-size="12.5" font-family="Instrument Sans,sans-serif" text-anchor="middle">1.18 in</text>
+        </g>
+        <!-- C6 strawberry: 0.5in => 25px -->
+        <g>
+          <circle cx="446" cy="174" r="26" fill="url(#g)"/>
+          <path d="M446 190 C437 190 437 176 439 170 C441 164 444 160 446 158 C448 160 451 164 453 170 C455 176 455 190 446 190Z" fill="#FFD79A"/>
+          <text x="446" y="228" fill="#E8EEF5" font-size="15" font-family="Instrument Sans,sans-serif" font-weight="600" text-anchor="middle">C6</text>
+          <text x="446" y="245" fill="#63788C" font-size="12.5" font-family="Instrument Sans,sans-serif" text-anchor="middle">0.50 in</text>
+        </g>
+        <!-- G12 raspberry: 0.47in => 23px -->
+        <g>
+          <circle cx="552" cy="176" r="24" fill="url(#g)"/>
+          <circle cx="552" cy="178" r="11.5" fill="#FFD79A"/>
+          <text x="552" y="228" fill="#E8EEF5" font-size="15" font-family="Instrument Sans,sans-serif" font-weight="600" text-anchor="middle">G12</text>
+          <text x="552" y="245" fill="#63788C" font-size="12.5" font-family="Instrument Sans,sans-serif" text-anchor="middle">0.47 in</text>
+        </g>
+        <!-- M5: 0.2in => 10px -->
+        <g>
+          <circle cx="652" cy="182" r="18" fill="url(#g)"/>
+          <path d="M652 190 C648 190 648 183 649 180 C650 177 651 175 652 174 C653 175 654 177 655 180 C656 183 656 190 652 190Z" fill="#FFD79A"/>
+          <text x="652" y="228" fill="#E8EEF5" font-size="15" font-family="Instrument Sans,sans-serif" font-weight="600" text-anchor="middle">M5</text>
+          <text x="652" y="245" fill="#63788C" font-size="12.5" font-family="Instrument Sans,sans-serif" text-anchor="middle">0.20 in</text>
+        </g>
+        <!-- 5mm wide angle -->
+        <g>
+          <circle cx="748" cy="182" r="18" fill="url(#g)"/>
+          <rect x="743.5" y="176" width="9" height="14" rx="4.5" fill="#FFD79A"/>
+          <text x="748" y="228" fill="#E8EEF5" font-size="15" font-family="Instrument Sans,sans-serif" font-weight="600" text-anchor="middle">5mm</text>
+          <text x="748" y="245" fill="#63788C" font-size="12.5" font-family="Instrument Sans,sans-serif" text-anchor="middle">0.20 in</text>
+        </g>
+      </svg>
+      <p class="scale-note">C9 on rooflines, C7 on smaller homes and detail runs, globes on patios and pergolas, C6 and G12 on trees and shrubs, M5 and 5mm for wraps, nets and fine work.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ================= SPACING ================= -->
+<section style="padding-top:0">
+  <div class="shell">
+    <div class="sec-head">
+      <p class="eyebrow">Bulb spacing</p>
+      <h2>The choice that changes the look most, and the one nobody explains</h2>
+      <p>Same bulb, same colour, three different houses. Tighter spacing means more bulbs per foot, which means more product cost — this is where a cheap quote and an expensive one usually differ, not in the lights themselves.</p>
+    </div>
+    <div class="spacing">
+      <div class="sp">
+        <h3>8-inch spacing</h3>
+        <div class="bar" id="sp8"></div>
+        <p>Dense, continuous and premium. Best on short rooflines and detail work where the run is visible up close. Roughly 1.5 bulbs per foot.</p>
+      </div>
+      <div class="sp">
+        <h3>12-inch spacing</h3>
+        <div class="bar" id="sp12"></div>
+        <p>Our default. Reads as a clean, even line from the street on a standard two-storey and balances cost against coverage. One bulb per foot.</p>
+      </div>
+      <div class="sp">
+        <h3>15-inch spacing</h3>
+        <div class="bar" id="sp15"></div>
+        <p>Economical and better suited to long commercial runs, tall peaks and distant viewing. Fewer bulbs, wider gaps, softer effect up close.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= COLOUR ================= -->
+<section style="padding-top:0">
+  <div class="shell">
+    <div class="sec-head">
+      <p class="eyebrow">Colour temperature</p>
+      <h2>Warm white and cool white are not interchangeable</h2>
+      <p>Colour-specified LEDs held to a fixed Kelvin range, so every strand on your house matches — and still matches the strand we bring back next year.</p>
+    </div>
+    <div class="temps">
+      <div class="temp"><span class="sw" style="background:#FFC069"></span><div><b>Sun warm</b><span>2200K · candlelit, nostalgic</span></div></div>
+      <div class="temp"><span class="sw" style="background:#FFD9A0"></span><div><b>Warm white</b><span>2700K · our most requested</span></div></div>
+      <div class="temp"><span class="sw" style="background:#FFF0D8"></span><div><b>Pure white</b><span>3500K · crisp, neutral</span></div></div>
+      <div class="temp"><span class="sw" style="background:#EAF2FF"></span><div><b>Cool white</b><span>5000K · icy, modern</span></div></div>
+      <div class="temp"><span class="sw" style="background:linear-gradient(135deg,#E0534B 0 25%,#4FA96B 25% 50%,#F2D24B 50% 75%,#5D8FD6 75%)"></span><div><b>Multicolour</b><span>Classic five-colour rotation</span></div></div>
+    </div>
+    <div class="callout"><strong>The mistake we fix most often.</strong> Mixing warm white roofline with cool white shrubs makes both look broken rather than intentional. If you want contrast, we do it with bulb size or spacing, not by mixing colour temperatures on the same elevation.</div>
+  </div>
+</section>
+
+<!-- ================= CATALOGUE: ROOFLINE ================= -->
+<section style="padding-top:0">
+  <div class="shell">
+    <div class="sec-head">
+      <p class="eyebrow">Catalogue · roofline &amp; architectural</p>
+      <h2>String light sets</h2>
+      <p>All sets are one-piece sealed construction on SPT-1 or SPT-2 wire with full-wave rectifiers — no removable bulbs on exterior runs, because a removable bulb is a hole for water.</p>
+    </div>
+    <div class="cat">
+      <div class="cat-row">
+        <div><h3>C9 LED faceted sets<span class="sku">Wintergreen Lighting · green or white wire · 8 in or 12 in spacing</span></h3></div>
+        <div><p>The standard for rooflines and the boldest read from the street. Faceted lens throws light in every direction, so the bulb looks lit from any angle.</p>
+          <ul class="spec"><li>Sealed, non-removable</li><li>Warm, cool, pure white, red, green, blue, multi</li><li>Green / white / brown wire</li></ul></div>
+        <div class="rate"><b>$6.40</b><span>per linear ft installed</span></div>
+      </div>
+      <div class="cat-row">
+        <div><h3>C9 OptiCore commercial sets<span class="sku">OptiCore® · commercial grade · 12 in spacing</span></h3></div>
+        <div><p>Brighter output, tighter colour binning and a heavier gauge wire built for multi-season commercial runs. What we put on anything visible from a main road.</p>
+          <ul class="spec"><li>Highest output</li><li>Commercial gauge wire</li><li>Best colour consistency</li></ul></div>
+        <div class="rate"><b>$7.40</b><span>per linear ft installed</span></div>
+      </div>
+      <div class="cat-row">
+        <div><h3>C7 LED faceted sets<span class="sku">Wintergreen Lighting · 8 in or 12 in spacing</span></h3></div>
+        <div><p>A third smaller than C9. Right for ranches, townhouses, dormers, porch outlines and anywhere C9 would overwhelm the scale of the house.</p>
+          <ul class="spec"><li>Full colour range</li><li>Detail and short runs</li><li>Lower cost per foot</li></ul></div>
+        <div class="rate"><b>$5.60</b><span>per linear ft installed</span></div>
+      </div>
+      <div class="cat-row">
+        <div><h3>5mm wide-angle sets<span class="sku">Wintergreen Lighting professional · 4 in or 6 in spacing</span></h3></div>
+        <div><p>Conical wide-angle lens, nearly invisible hardware by day. The choice for modern and contemporary homes where you want the line, not the bulbs.</p>
+          <ul class="spec"><li>Most discreet daytime look</li><li>Also used for wraps</li><li>Lowest cost per foot</li></ul></div>
+        <div class="rate"><b>$4.50</b><span>per linear ft installed</span></div>
+      </div>
+      <div class="cat-row">
+        <div><h3>M5 mini LED sets<span class="sku">Wintergreen Lighting · 4 in or 6 in spacing</span></h3></div>
+        <div><p>Traditional faceted mini bulb. Our default for tree wrapping, column spirals, railings and any run seen from within a few feet.</p>
+          <ul class="spec"><li>Trees &amp; columns</li><li>Tight spacing available</li><li>SoftTwinkle option</li></ul></div>
+        <div class="rate"><b>$4.80</b><span>per linear ft installed</span></div>
+      </div>
+      <div class="cat-row">
+        <div><h3>T5 &amp; C6 sets<span class="sku">Kringle Traditions® · smooth and strawberry lens</span></h3></div>
+        <div><p>Smooth-lens T5 and faceted C6 strawberry bulbs for interior trees, mantels, banisters and delicate exterior detail.</p>
+          <ul class="spec"><li>Interior &amp; detail</li><li>Smooth or faceted</li><li>Warm-forward palette</li></ul></div>
+        <div class="rate"><b>$4.60</b><span>per linear ft installed</span></div>
+      </div>
+      <div class="cat-row">
+        <div><h3>SoftTwinkle sets<span class="sku">Slow random fade · 5mm or M5</span></h3></div>
+        <div><p>Bulbs fade gently in and out at random instead of blinking. Subtle enough for a whole roofline; most people can't tell why the house looks alive.</p>
+          <ul class="spec"><li>No harsh flashing</li><li>Mix with static runs</li><li>Roofline safe</li></ul></div>
+        <div class="rate"><b>$5.20</b><span>per linear ft installed</span></div>
+      </div>
+      <div class="cat-row">
+        <div><h3>Icicle light sets<span class="sku">M5 · white or green wire · varied drop lengths</span></h3></div>
+        <div><p>Staggered vertical drops from gutters and eaves. High impact, and the most labour-intensive product we hang — the drops have to be levelled by eye.</p>
+          <ul class="spec"><li>Staggered drops</li><li>Gutter line only</li><li>Warm, cool, multi</li></ul></div>
+        <div class="rate"><b>$7.90</b><span>per linear ft installed</span></div>
+      </div>
+      <div class="cat-row">
+        <div><h3>Cascade tube lights<span class="sku">Grand Cascade™ · falling-snow effect</span></h3></div>
+        <div><p>Vertical tubes with a chasing downward animation. Best on columns, entry porticos, gate posts and tall commercial facades.</p>
+          <ul class="spec"><li>Animated drop</li><li>Columns &amp; entries</li><li>Priced per tube</li></ul></div>
+        <div class="rate"><b>$38</b><span>per tube installed</span></div>
+      </div>
+      <div class="cat-row">
+        <div><h3>Stringers, spools &amp; bulbs<span class="sku">SPT-1 / SPT-2 · 250, 500 and 1,000 ft spools · C7 and C9 bulbs</span></h3></div>
+        <div><p>For non-standard runs we build strands on site from bulk spool and loose bulbs, so spacing matches your architecture instead of a factory default.</p>
+          <ul class="spec"><li>Any spacing</li><li>Any colour pattern</li><li>Field-built strands</li></ul></div>
+        <div class="rate"><b>Quoted</b><span>on site</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= CATALOGUE: TREES & YARD ================= -->
+<section style="padding-top:0">
+  <div class="shell">
+    <div class="sec-head">
+      <p class="eyebrow">Catalogue · trees, shrubs &amp; yard</p>
+      <h2>Everything below the roofline</h2>
+    </div>
+    <div class="cat">
+      <div class="cat-row">
+        <div><h3>Net lights<span class="sku">M5 or 5mm · green or white mesh</span></h3></div>
+        <div><p>Pre-woven mesh laid over hedges, foundation shrubs and boxwoods for instant even coverage. Fast to install, fast to remove, no tangles.</p>
+          <ul class="spec"><li>Per bush</li><li>Even coverage</li><li>Warm, cool, multi</li></ul></div>
+        <div class="rate"><b>$55</b><span>per shrub installed</span></div>
+      </div>
+      <div class="cat-row">
+        <div><h3>Trunk &amp; branch wrapping<span class="sku">M5 or 5mm on brown or green wire</span></h3></div>
+        <div><p>Spiral wrapping up trunks and out along major limbs. Priced by trunk height and reach — a 20 ft maple takes roughly four times the labour of an 8 ft ornamental.</p>
+          <ul class="spec"><li>Ornamental from $150</li><li>Mature from $450</li><li>Brown wire disappears</li></ul></div>
+        <div class="rate"><b>$150+</b><span>per tree installed</span></div>
+      </div>
+      <div class="cat-row">
+        <div><h3>Canopy &amp; branch drape<span class="sku">C9, C7 or 5mm · large-format spacing</span></h3></div>
+        <div><p>Loose swags draped through upper branches for a lit canopy rather than a lit trunk. Requires reach equipment on anything over 25 feet.</p>
+          <ul class="spec"><li>Lift work</li><li>Large specimens</li><li>Quoted per tree</li></ul></div>
+        <div class="rate"><b>Quoted</b><span>by height &amp; reach</span></div>
+      </div>
+      <div class="cat-row">
+        <div><h3>Column &amp; post wraps<span class="sku">M5 or 5mm spiral · matched pitch</span></h3></div>
+        <div><p>Even spiral wrapping on porch columns, pillars, lamp posts and pergola uprights, with the pitch matched across every column on the elevation.</p>
+          <ul class="spec"><li>Per column</li><li>Consistent pitch</li><li>Garland option</li></ul></div>
+        <div class="rate"><b>$165</b><span>per column installed</span></div>
+      </div>
+      <div class="cat-row">
+        <div><h3>Window &amp; door framing<span class="sku">C7, M5 or 5mm · clip-mounted</span></h3></div>
+        <div><p>Clean outlines around windows, doors, garage bays and shutters. The cheapest way to make a house look fully decorated rather than just outlined at the top.</p>
+          <ul class="spec"><li>Per opening</li><li>No fixings in trim</li><li>Matches roofline</li></ul></div>
+        <div class="rate"><b>$85</b><span>per opening installed</span></div>
+      </div>
+      <div class="cat-row">
+        <div><h3>Lit wreaths, garland &amp; bows<span class="sku">24 in to 72 in · weather-rated velvet bows</span></h3></div>
+        <div><p>Commercial wreaths and garland for doors, gables, gates, fences and lamp posts. Supplied and installed, or we hang and store yours.</p>
+          <ul class="spec"><li>24–72 in</li><li>Lit or unlit</li><li>Gable mounting</li></ul></div>
+        <div class="rate"><b>$140+</b><span>per piece installed</span></div>
+      </div>
+      <div class="cat-row">
+        <div><h3>Light balls &amp; spheres<span class="sku">Pre-formed 10 in to 36 in</span></h3></div>
+        <div><p>Hung from trees, porches and pergolas, or clustered on the ground. High visual impact for very little labour.</p>
+          <ul class="spec"><li>10–36 in</li><li>Hung or grounded</li><li>Per sphere</li></ul></div>
+        <div class="rate"><b>$60+</b><span>per sphere installed</span></div>
+      </div>
+      <div class="cat-row">
+        <div><h3>Pathway stakes<span class="sku">C7 or C9 on stakes · 24 in or 36 in</span></h3></div>
+        <div><p>Bulbs on ground stakes lining drives, walks and beds. Set at consistent height and spacing, and pulled before the first plough run if needed.</p>
+          <ul class="spec"><li>Per linear ft</li><li>24 or 36 in stakes</li><li>Plough-aware layout</li></ul></div>
+        <div class="rate"><b>$3.80</b><span>per linear ft installed</span></div>
+      </div>
+      <div class="cat-row">
+        <div><h3>Motifs, figures &amp; displays<span class="sku">2D and 3D lit forms · rope-light and LED</span></h3></div>
+        <div><p>Deer, sleighs, candy canes, arches, oversize ornaments and pole-mounted motifs. Anchored properly, which matters in a January wind off the prairie.</p>
+          <ul class="spec"><li>2D &amp; 3D</li><li>Anchored &amp; guyed</li><li>Per piece</li></ul></div>
+        <div class="rate"><b>Quoted</b><span>per piece</span></div>
+      </div>
+      <div class="cat-row">
+        <div><h3>Inflatable setup<span class="sku">Your inflatables · anchoring, power, takedown</span></h3></div>
+        <div><p>We'll site, anchor, power and weatherproof what you already own, then pack it away in January. Most companies won't touch these.</p>
+          <ul class="spec"><li>Your equipment</li><li>Proper anchoring</li><li>Removal included</li></ul></div>
+        <div class="rate"><b>$45</b><span>per unit</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= CATALOGUE: PERMANENT & LANDSCAPE ================= -->
+<section style="padding-top:0">
+  <div class="shell">
+    <div class="sec-head">
+      <p class="eyebrow">Catalogue · year-round systems</p>
+      <h2>Permanent &amp; landscape</h2>
+      <p>Installed once, used all year, and no ladder ever goes up your house again.</p>
+    </div>
+    <div class="cat">
+      <div class="cat-row rgbrow">
+        <div><h3>Permanent RGB track<span class="sku">Soffit or fascia mounted · app controlled</span></h3></div>
+        <div><p>Individually addressable RGB LEDs in an aluminium channel tucked under the soffit line. Warm white on ordinary evenings, any colour for any occasion, invisible by day.</p>
+          <ul class="spec"><li>App scheduling &amp; scenes</li><li>Music sync</li><li>Front elevation from $2,400</li></ul></div>
+        <div class="rate"><b>$22</b><span>per linear ft installed</span></div>
+      </div>
+      <div class="cat-row rgbrow">
+        <div><h3>Path &amp; walkway fixtures<span class="sku">Low voltage · cast brass or aluminium</span></h3></div>
+        <div><p>Graded path lighting on buried low-voltage runs. Fixture spacing set so pools of light overlap slightly — enough to walk by without an airport-runway effect.</p>
+          <ul class="spec"><li>Per fixture</li><li>Brass or aluminium</li><li>Plough-season rated</li></ul></div>
+        <div class="rate"><b>$135</b><span>per fixture installed</span></div>
+      </div>
+      <div class="cat-row rgbrow">
+        <div><h3>Uplights &amp; spotlights<span class="sku">Adjustable beam · well or stake mount</span></h3></div>
+        <div><p>Facade washes, column grazing and tree uplighting. Beam spread and colour temperature chosen per surface, because brick and limestone want different light.</p>
+          <ul class="spec"><li>Per fixture</li><li>Well or stake</li><li>Beam-matched</li></ul></div>
+        <div class="rate"><b>$155</b><span>per fixture installed</span></div>
+      </div>
+      <div class="cat-row rgbrow">
+        <div><h3>Deck, step &amp; hardscape<span class="sku">Riser, cap and recessed fixtures</span></h3></div>
+        <div><p>Step risers, railing caps, retaining walls and seat-wall undersides. Wired during or after construction, cleanly and without surface conduit.</p>
+          <ul class="spec"><li>Per fixture</li><li>Recessed options</li><li>Retrofit capable</li></ul></div>
+        <div class="rate"><b>$110</b><span>per fixture installed</span></div>
+      </div>
+      <div class="cat-row rgbrow">
+        <div><h3>Patio &amp; pergola strings<span class="sku">Globe, S14 or Edison FlexFilament® bulbs</span></h3></div>
+        <div><p>Commercial-weight bistro string on tensioned cable with proper strain relief, so it doesn't sag by August or come down in a storm.</p>
+          <ul class="spec"><li>Tensioned cable</li><li>Dimmable</li><li>Globe / S14 / Edison</li></ul></div>
+        <div class="rate"><b>$14</b><span>per linear ft installed</span></div>
+      </div>
+      <div class="cat-row rgbrow">
+        <div><h3>Transformers &amp; controls<span class="sku">Multi-tap · timers, photocells, zone control</span></h3></div>
+        <div><p>Correctly sized multi-tap transformers with voltage-drop calculated per run, plus astronomical timers and zoning. We also correct undersized systems other people installed.</p>
+          <ul class="spec"><li>Voltage-drop calculated</li><li>Zoned</li><li>Repairs welcome</li></ul></div>
+        <div class="rate"><b>$385+</b><span>per system</span></div>
+      </div>
+      <div class="cat-row rgbrow">
+        <div><h3>Rope &amp; strip light<span class="sku">Clear and coloured LED rope · flexible strip</span></h3></div>
+        <div><p>Continuous line light for signage, railings, cove detail, under-cap runs and commercial outlining where individual bulbs would look wrong.</p>
+          <ul class="spec"><li>Continuous line</li><li>Cuttable lengths</li><li>Nine colours</li></ul></div>
+        <div class="rate"><b>$9</b><span>per linear ft installed</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= INCLUDED HARDWARE ================= -->
+<section style="padding-top:0">
+  <div class="shell">
+    <div class="sec-head">
+      <p class="eyebrow">Included, never itemised</p>
+      <h2>The hardware other companies quote as extras</h2>
+      <p>All of this is in the per-foot price above. If a competitor's quote looks cheaper, this is usually where the difference is hiding.</p>
+    </div>
+    <div class="incl-grid">
+      <div><h3>Ridge &amp; gutter clips</h3><p>All-in-one and parapet clips sized to your shingle and gutter profile. No staples, nails or adhesive anywhere on your house.</p></div>
+      <div><h3>SPT-1 / SPT-2 wire</h3><p>Outdoor-rated cordage cut to your runs, with vampire plugs terminated and sealed on site.</p></div>
+      <div><h3>Sealed connectors</h3><p>Every junction gasketed and weather-sealed. Meltwater running down a roofline finds every open connection you leave it.</p></div>
+      <div><h3>Outdoor timer or smart plug</h3><p>Fifteen-amp outdoor-rated timer programmed before we leave, or integrated with the smart plug you already use.</p></div>
+      <div><h3>Load balancing</h3><p>Runs distributed across circuits and calculated against your available amperage, so nothing trips on the first cold night.</p></div>
+      <div><h3>Extension &amp; power runs</h3><p>Outdoor-rated extension cords routed out of sight and secured, not draped across a walkway.</p></div>
+      <div><h3>Light stakes &amp; anchors</h3><p>Ground stakes, guy lines and anchors for stakes, motifs and displays, rated for winter wind loads.</p></div>
+      <div><h3>Free in-season service</h3><p>Any outage, any number of times, for the whole season. Not a maintenance plan you buy separately.</p></div>
+      <div><h3>Takedown &amp; dry storage</h3><p>January removal, labelled by elevation, boxed and stored dry until next November. Your garage stays yours.</p></div>
+    </div>
+    <div class="callout"><strong>Two-year bulb warranty on everything we supply.</strong> Sealed one-piece LED construction, colour-specified to a fixed Kelvin range so the strand we bring back next year still matches the one beside it. If a run fails inside two seasons we replace it, not repair it.</div>
+  </div>
+</section>
+
+<!-- ================= CTA ================= -->
+<section style="padding-top:0">
+  <div class="shell">
+    <div class="cta">
+      <h2>You've seen the prices. Now let's measure your house.</h2>
+      <p>Twenty minutes on site, a fixed written quote within 48 hours, and a design that uses the products above rather than whatever's left in the van.</p>
+      <a class="btn btn-lg" href="index.html#quote">Book a free design visit</a>
+      <a class="btn btn-lg btn-ghost" href="tel:+1312XXXXXXX">(312) XXX-XXXX</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="shell">
+    <a class="brand" href="index.html" style="margin-bottom:14px"><span class="dot"></span>Ridgeline Lighting Co.</a>
+    <p style="max-width:60ch;margin:0 0 18px">Per-foot pricing shown is installed and includes hardware, service, takedown and storage. Estimates are not quotes; final pricing follows an on-site measure. Product names are the trademarks of their manufacturers.</p>
+    <p style="margin:0">© <span id="yr">2026</span> Ridgeline Lighting Co. · <a href="index.html">Home</a> · <a href="index.html#pricing">Pricing</a> · <a href="index.html#quote">Free design visit</a></p>
+  </div>
+</footer>
+
+<script>
+document.getElementById('yr').textContent = new Date().getFullYear();
+
+var root = document.documentElement, tb = document.getElementById('t');
+tb.addEventListener('click', function(){
+  var n = root.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+  root.setAttribute('data-theme', n);
+  tb.textContent = n === 'dark' ? '☀' : '☾';
+});
+
+/* ---- spacing demo dots ---- */
+[['sp8',8],['sp12',12],['sp15',15]].forEach(function(p){
+  var el = document.getElementById(p[0]);
+  if(!el) return;
+  var feet = 12, n = Math.floor(feet * 12 / p[1]) + 1;
+  for(var i=0;i<n;i++){
+    var d = document.createElement('i');
+    d.style.left = (i * (100/(n-1))) + '%';
+    el.appendChild(d);
+  }
+});
+
+/* ---- estimator ---- */
+var els = ['feet','prod','colour','stories','pitch','col','shr','win','tre','wre','pat','early'].map(function(id){
+  return document.getElementById(id);
+});
+var money = function(n){ return '$' + Math.round(n).toLocaleString('en-US'); };
+
+function calc(){
+  var feet    = +document.getElementById('feet').value,
+      rate    = +document.getElementById('prod').value,
+      prodTxt = document.getElementById('prod').selectedOptions[0].text.split('—')[0].trim(),
+      col     = +document.getElementById('colour').value,
+      st      = +document.getElementById('stories').value,
+      pi      = +document.getElementById('pitch').value;
+
+  document.getElementById('feetOut').textContent = feet;
+
+  var roof = feet * rate * col * st * pi;
+
+  var add = (+document.getElementById('col').value) * 165
+          + (+document.getElementById('shr').value) * 55
+          + (+document.getElementById('win').value) * 85
+          + (+document.getElementById('tre').value) * 150
+          + (+document.getElementById('wre').value) * 140
+          + (+document.getElementById('pat').value) * 3.8;
+
+  var sub = roof + add;
+  if(document.getElementById('early').checked) sub *= 0.92;
+  if(sub < 900) sub = 900;
+
+  var lo = sub * 0.95, hi = sub * 1.06;
+
+  document.getElementById('total').textContent  = money(lo) + ' – ' + money(hi);
+  document.getElementById('perft').textContent  = 'about $' + (sub/feet).toFixed(2) + ' per linear foot';
+  document.getElementById('lblRoof').textContent = 'Roofline — ' + prodTxt + ', ' + feet + ' ft';
+  document.getElementById('valRoof').textContent = money(roof * (document.getElementById('early').checked ? 0.92 : 1));
+  document.getElementById('valAdd').textContent  = add ? money(add * (document.getElementById('early').checked ? 0.92 : 1)) : '$0';
+  document.getElementById('valY2').textContent   = money(sub * 0.70);
+}
+
+els.forEach(function(el){
+  if(!el) return;
+  el.addEventListener('input', calc);
+  el.addEventListener('change', calc);
+});
+calc();
+
+/* ===== zig-zag background string lights ===== */
+(function(){
+  var NS = 'http://www.w3.org/2000/svg';
+  var COLORS = [
+    ['#E5484D','#FF9DA0'], /* red    */
+    ['#46A758','#8FE8A4'], /* green  */
+    ['#4A8FE0','#9CCBFF'], /* blue   */
+    ['#F5C33B','#FFE596'], /* gold   */
+    ['#A66FD4','#DCB8F7'], /* purple */
+    ['#FFD79A','#FFF1DC']  /* warm   */
+  ];
+  var ROW_GAP = 190;
+  var layer = document.querySelector('.xlights');
+  if(!layer) return;
+
+  var rnd = function(a, b){ return a + Math.random() * (b - a); };
+
+  /* every strand gets its own period, droop, phase, drift and tilt, plus a
+     second out-of-step harmonic, so no two runs ever line up */
+  function strand(baseY){
+    return {
+      y:  baseY,
+      p1: rnd(150, 300), a1: rnd(14, 44), f1: rnd(0, Math.PI * 2),
+      p2: rnd(340, 780), a2: rnd(8, 26),  f2: rnd(0, Math.PI * 2),
+      tilt: rnd(-0.075, 0.075),
+      gap:  rnd(23, 42)
+    };
+  }
+
+  function zig(x, s){
+    return s.y
+      + s.tilt * x
+      - s.a1 * Math.cos(2 * Math.PI * x / s.p1 + s.f1)
+      - s.a2 * Math.cos(2 * Math.PI * x / s.p2 + s.f2);
+  }
+
+  function build(){
+    var W = window.innerWidth, H = window.innerHeight;
+    var svg = document.createElementNS(NS,'svg');
+    svg.setAttribute('width', W);
+    svg.setAttribute('height', H);
+    svg.setAttribute('viewBox', '0 0 ' + W + ' ' + H);
+
+    var defs = document.createElementNS(NS,'defs');
+    COLORS.forEach(function(c,i){
+      var g = document.createElementNS(NS,'radialGradient');
+      g.setAttribute('id','xg'+i);
+      var s1 = document.createElementNS(NS,'stop');
+      s1.setAttribute('offset','0%'); s1.setAttribute('stop-color',c[1]); s1.setAttribute('stop-opacity','.65');
+      var s2 = document.createElementNS(NS,'stop');
+      s2.setAttribute('offset','100%'); s2.setAttribute('stop-color',c[0]); s2.setAttribute('stop-opacity','0');
+      g.appendChild(s1); g.appendChild(s2); defs.appendChild(g);
+    });
+    svg.appendChild(defs);
+
+    var rows = Math.max(3, Math.ceil(H / ROW_GAP) + 2);
+    var cursor = rnd(-30, 30);
+
+    for(var r = 0; r < rows; r++){
+      cursor += rnd(ROW_GAP * 0.55, ROW_GAP * 1.45);
+      var s = strand(cursor);
+
+      /* the wire */
+      var pts = [];
+      for(var vx = -60; vx <= W + 60; vx += 5){
+        pts.push(vx + ',' + zig(vx, s).toFixed(1));
+      }
+      var wire = document.createElementNS(NS,'polyline');
+      wire.setAttribute('points', pts.join(' '));
+      wire.setAttribute('fill','none');
+      wire.setAttribute('stroke','var(--xwire)');
+      wire.setAttribute('stroke-width', rnd(1.2, 1.9).toFixed(2));
+      svg.appendChild(wire);
+
+      /* the bulbs */
+      for(var x = rnd(-10, 18); x < W + 20; x += s.gap * rnd(0.82, 1.24)){
+        var y = zig(x, s);
+        var gi = Math.floor(Math.random() * COLORS.length);
+        var c = COLORS[gi];
+        var sz = rnd(0.82, 1.22);
+
+        var g = document.createElementNS(NS,'g');
+        g.setAttribute('class','xb');
+        g.style.animationDuration = (2.2 + Math.random() * 4.4).toFixed(2) + 's';
+        g.style.animationDelay = (-Math.random() * 6).toFixed(2) + 's';
+
+        var halo = document.createElementNS(NS,'circle');
+        halo.setAttribute('cx', x.toFixed(1)); halo.setAttribute('cy', y.toFixed(1));
+        halo.setAttribute('r', (13 * sz).toFixed(1));
+        halo.setAttribute('fill','url(#xg' + gi + ')');
+
+        var cap = document.createElementNS(NS,'rect');
+        cap.setAttribute('x', (x - 2.4 * sz).toFixed(1)); cap.setAttribute('y', (y - 5.6 * sz).toFixed(1));
+        cap.setAttribute('width', (4.8 * sz).toFixed(1)); cap.setAttribute('height', (3.4 * sz).toFixed(1));
+        cap.setAttribute('rx', 1);
+        cap.setAttribute('fill','var(--xwire)');
+
+        var core = document.createElementNS(NS,'circle');
+        core.setAttribute('cx', x.toFixed(1)); core.setAttribute('cy', (y + 0.6 * sz).toFixed(1));
+        core.setAttribute('r', (3.4 * sz).toFixed(1));
+        core.setAttribute('fill', c[0]);
+
+        var hot = document.createElementNS(NS,'circle');
+        hot.setAttribute('cx', (x - 1 * sz).toFixed(1)); hot.setAttribute('cy', (y - 0.6 * sz).toFixed(1));
+        hot.setAttribute('r', (1.2 * sz).toFixed(1));
+        hot.setAttribute('fill', c[1]);
+
+        g.appendChild(halo); g.appendChild(cap); g.appendChild(core); g.appendChild(hot);
+        svg.appendChild(g);
+      }
+    }
+
+    layer.innerHTML = '';
+    layer.appendChild(svg);
+  }
+
+  build();
+  var t;
+  window.addEventListener('resize', function(){
+    clearTimeout(t);
+    t = setTimeout(build, 220);
+  });
+})();
+</script>
+</body>
+</html>
