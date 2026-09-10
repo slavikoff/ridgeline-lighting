@@ -16,7 +16,7 @@
   --text:#E8EEF5; --muted:#8CA0B4; --dim:#63788C;
   --glow:#FFC468; --glow-2:#FFE3B0; --glow-soft:rgba(255,196,104,.14);
   --rgb:#63B3E8; --rgb-soft:rgba(99,179,232,.14);
-  --shell:1120px;
+  --shell:1264px;
 }
 html[data-theme="light"]{
   --bg:#EDF1F6; --surface:#FFFFFF; --surface-2:#F6F9FB;
@@ -39,12 +39,15 @@ h1,h2,h3,h4{margin:0;letter-spacing:-.02em}
 /* nav */
 nav{position:sticky;top:0;z-index:50;background:color-mix(in srgb,var(--bg) 88%,transparent);
     backdrop-filter:blur(12px);border-bottom:1px solid var(--rule-soft)}
-.nav-in{display:flex;align-items:center;gap:32px;height:70px;max-width:var(--shell);margin:0 auto;padding:0 28px}
+.nav-in{display:flex;align-items:center;gap:18px;height:70px;max-width:var(--shell);margin:0 auto;padding:0 28px}
 .brand{display:flex;align-items:center;gap:10px;font-size:19px;font-weight:600;text-decoration:none;white-space:nowrap}
 .brand .dot{width:9px;height:9px;border-radius:50%;background:var(--glow);
   box-shadow:0 0 10px 2px var(--glow-soft),0 0 22px 6px var(--glow-soft)}
-.nav-links{display:flex;gap:26px;margin-left:auto;font-size:15px}
-.nav-links a{color:var(--muted);text-decoration:none}
+.nav-links{display:flex;gap:7px;margin-left:auto;font-size:14.5px}
+.nav-links a{color:var(--muted);text-decoration:none;padding:8px 14px;border-radius:8px;
+  border:1px solid var(--rule);background:var(--surface-2);white-space:nowrap;
+  transition:color .15s,border-color .15s,background .15s}
+.nav-links a:hover{color:var(--glow);border-color:var(--glow);background:var(--glow-soft)}
 .nav-links a:hover,.nav-links a.on{color:var(--text)}
 .nav-cta{display:flex;align-items:center;gap:14px}
 .tel{font-size:15px;font-weight:600;text-decoration:none;white-space:nowrap}
@@ -129,8 +132,11 @@ section{padding:88px 0}
 
 /* catalogue table */
 .cat{border-top:1px solid var(--rule);margin-top:8px}
-.cat-row{display:grid;grid-template-columns:1.4fr 1.6fr 200px;gap:32px;padding:24px 0;
+.cat-row{display:grid;grid-template-columns:104px 1.25fr 1.5fr 180px;gap:26px;padding:24px 0;
   border-bottom:1px solid var(--rule-soft);align-items:start}
+.pic{width:104px;height:78px;border-radius:9px;background:linear-gradient(#0A121D,#131F30);
+  border:1px solid #1E2C3C;overflow:hidden}
+.pic svg{display:block;width:100%;height:100%}
 .cat-row h3{font-size:19px;font-weight:600}
 .cat-row .sku{display:block;font-size:13.5px;color:var(--dim);margin-top:3px}
 .cat-row p{margin:0;color:var(--muted);font-size:16px}
@@ -166,7 +172,8 @@ footer a:hover{color:var(--glow)}
   .est{grid-template-columns:1fr}
   .est-out{border-left:none;border-top:1px solid var(--rule)}
   .spacing,.temps,.incl-grid{grid-template-columns:1fr}
-  .cat-row{grid-template-columns:1fr;gap:10px}
+  .cat-row{grid-template-columns:1fr;gap:12px}
+  .pic{width:100%;height:130px}
   .rate{text-align:left}
   .nav-links{display:none}
   .est-form,.est-out,.cta{padding:30px 24px}
@@ -176,24 +183,46 @@ footer a:hover{color:var(--glow)}
   .two,.checks{grid-template-columns:1fr}
   .tel{display:none}
 }
+/* ============ searchlight beams ============ */
+.beams{position:fixed;inset:0;z-index:0;pointer-events:none;overflow:hidden;mix-blend-mode:screen}
+html[data-theme="light"] .beams{mix-blend-mode:multiply;opacity:.42}
+.beam{position:absolute;bottom:-12%;width:430px;height:128vh;transform-origin:50% 100%;
+  clip-path:polygon(47.5% 100%, 52.5% 100%, 100% 0, 0 0);filter:blur(16px);
+  animation:sweep 15s ease-in-out infinite alternate}
+.beam.b1{left:27%;background:linear-gradient(to top,rgba(255,196,104,.5),rgba(255,196,104,.10) 52%,transparent 84%)}
+.beam.b2{left:73%;background:linear-gradient(to top,rgba(99,179,232,.44),rgba(99,179,232,.09) 52%,transparent 84%);
+  animation-duration:21s;animation-delay:-7s}
+@keyframes sweep{
+  from{transform:translateX(-50%) rotate(36deg)}
+  to{transform:translateX(-50%) rotate(-36deg)}
+}
+@media (prefers-reduced-motion:reduce){.beam{animation:none;transform:translateX(-50%)}}
+
+/* ============ lights around the wordmark ============ */
+nav .brand{position:relative}
+.blights{position:absolute;pointer-events:none;overflow:visible}
+
 /* ============ background string lights ============ */
 .xlights{position:fixed;inset:0;z-index:0;pointer-events:none;overflow:hidden;
-  opacity:.5;--xwire:#22323F}
-html[data-theme="light"] .xlights{opacity:.38;--xwire:#AEBDCA}
+  opacity:.74;--xwire:#22323F}
+html[data-theme="light"] .xlights{opacity:1;--xwire:#98A9B8;
+  filter:saturate(1.45) brightness(1.06) contrast(1.05)}
 .xlights svg{display:block}
 .shell,section,footer{position:relative;z-index:1}
 .xb{animation-name:flick;animation-iteration-count:infinite;animation-timing-function:ease-in-out}
 @keyframes flick{
   0%,100%{opacity:1}
-  36%{opacity:.42}
-  54%{opacity:.94}
-  71%{opacity:.28}
-  87%{opacity:.86}
+  36%{opacity:.66}
+  54%{opacity:.97}
+  71%{opacity:.52}
+  87%{opacity:.9}
 }
 @media (prefers-reduced-motion:reduce){.xb{animation:none;opacity:.9}}
 </style>
 </head>
 <body>
+
+<div class="beams" aria-hidden="true"><i class="beam b1"></i><i class="beam b2"></i></div>
 
 <div class="xlights" aria-hidden="true"></div>
 
@@ -445,60 +474,70 @@ html[data-theme="light"] .xlights{opacity:.38;--xwire:#AEBDCA}
     </div>
     <div class="cat">
       <div class="cat-row">
+        <div class="pic" data-pic="c9"></div>
         <div><h3>C9 LED faceted sets<span class="sku">Wintergreen Lighting · green or white wire · 8 in or 12 in spacing</span></h3></div>
         <div><p>The standard for rooflines and the boldest read from the street. Faceted lens throws light in every direction, so the bulb looks lit from any angle.</p>
           <ul class="spec"><li>Sealed, non-removable</li><li>Warm, cool, pure white, red, green, blue, multi</li><li>Green / white / brown wire</li></ul></div>
         <div class="rate"><b>$6.40</b><span>per linear ft installed</span></div>
       </div>
       <div class="cat-row">
+        <div class="pic" data-pic="c9c"></div>
         <div><h3>C9 OptiCore commercial sets<span class="sku">OptiCore® · commercial grade · 12 in spacing</span></h3></div>
         <div><p>Brighter output, tighter colour binning and a heavier gauge wire built for multi-season commercial runs. What we put on anything visible from a main road.</p>
           <ul class="spec"><li>Highest output</li><li>Commercial gauge wire</li><li>Best colour consistency</li></ul></div>
         <div class="rate"><b>$7.40</b><span>per linear ft installed</span></div>
       </div>
       <div class="cat-row">
+        <div class="pic" data-pic="c7"></div>
         <div><h3>C7 LED faceted sets<span class="sku">Wintergreen Lighting · 8 in or 12 in spacing</span></h3></div>
         <div><p>A third smaller than C9. Right for ranches, townhouses, dormers, porch outlines and anywhere C9 would overwhelm the scale of the house.</p>
           <ul class="spec"><li>Full colour range</li><li>Detail and short runs</li><li>Lower cost per foot</li></ul></div>
         <div class="rate"><b>$5.60</b><span>per linear ft installed</span></div>
       </div>
       <div class="cat-row">
+        <div class="pic" data-pic="w5"></div>
         <div><h3>5mm wide-angle sets<span class="sku">Wintergreen Lighting professional · 4 in or 6 in spacing</span></h3></div>
         <div><p>Conical wide-angle lens, nearly invisible hardware by day. The choice for modern and contemporary homes where you want the line, not the bulbs.</p>
           <ul class="spec"><li>Most discreet daytime look</li><li>Also used for wraps</li><li>Lowest cost per foot</li></ul></div>
         <div class="rate"><b>$4.50</b><span>per linear ft installed</span></div>
       </div>
       <div class="cat-row">
+        <div class="pic" data-pic="m5"></div>
         <div><h3>M5 mini LED sets<span class="sku">Wintergreen Lighting · 4 in or 6 in spacing</span></h3></div>
         <div><p>Traditional faceted mini bulb. Our default for tree wrapping, column spirals, railings and any run seen from within a few feet.</p>
           <ul class="spec"><li>Trees &amp; columns</li><li>Tight spacing available</li><li>SoftTwinkle option</li></ul></div>
         <div class="rate"><b>$4.80</b><span>per linear ft installed</span></div>
       </div>
       <div class="cat-row">
+        <div class="pic" data-pic="c6"></div>
         <div><h3>T5 &amp; C6 sets<span class="sku">Kringle Traditions® · smooth and strawberry lens</span></h3></div>
         <div><p>Smooth-lens T5 and faceted C6 strawberry bulbs for interior trees, mantels, banisters and delicate exterior detail.</p>
           <ul class="spec"><li>Interior &amp; detail</li><li>Smooth or faceted</li><li>Warm-forward palette</li></ul></div>
         <div class="rate"><b>$4.60</b><span>per linear ft installed</span></div>
       </div>
       <div class="cat-row">
+        <div class="pic" data-pic="twinkle"></div>
         <div><h3>SoftTwinkle sets<span class="sku">Slow random fade · 5mm or M5</span></h3></div>
         <div><p>Bulbs fade gently in and out at random instead of blinking. Subtle enough for a whole roofline; most people can't tell why the house looks alive.</p>
           <ul class="spec"><li>No harsh flashing</li><li>Mix with static runs</li><li>Roofline safe</li></ul></div>
         <div class="rate"><b>$5.20</b><span>per linear ft installed</span></div>
       </div>
       <div class="cat-row">
+        <div class="pic" data-pic="icicle"></div>
         <div><h3>Icicle light sets<span class="sku">M5 · white or green wire · varied drop lengths</span></h3></div>
         <div><p>Staggered vertical drops from gutters and eaves. High impact, and the most labour-intensive product we hang — the drops have to be levelled by eye.</p>
           <ul class="spec"><li>Staggered drops</li><li>Gutter line only</li><li>Warm, cool, multi</li></ul></div>
         <div class="rate"><b>$7.90</b><span>per linear ft installed</span></div>
       </div>
       <div class="cat-row">
+        <div class="pic" data-pic="cascade"></div>
         <div><h3>Cascade tube lights<span class="sku">Grand Cascade™ · falling-snow effect</span></h3></div>
         <div><p>Vertical tubes with a chasing downward animation. Best on columns, entry porticos, gate posts and tall commercial facades.</p>
           <ul class="spec"><li>Animated drop</li><li>Columns &amp; entries</li><li>Priced per tube</li></ul></div>
         <div class="rate"><b>$38</b><span>per tube installed</span></div>
       </div>
       <div class="cat-row">
+        <div class="pic" data-pic="spool"></div>
         <div><h3>Stringers, spools &amp; bulbs<span class="sku">SPT-1 / SPT-2 · 250, 500 and 1,000 ft spools · C7 and C9 bulbs</span></h3></div>
         <div><p>For non-standard runs we build strands on site from bulk spool and loose bulbs, so spacing matches your architecture instead of a factory default.</p>
           <ul class="spec"><li>Any spacing</li><li>Any colour pattern</li><li>Field-built strands</li></ul></div>
@@ -517,60 +556,70 @@ html[data-theme="light"] .xlights{opacity:.38;--xwire:#AEBDCA}
     </div>
     <div class="cat">
       <div class="cat-row">
+        <div class="pic" data-pic="net"></div>
         <div><h3>Net lights<span class="sku">M5 or 5mm · green or white mesh</span></h3></div>
         <div><p>Pre-woven mesh laid over hedges, foundation shrubs and boxwoods for instant even coverage. Fast to install, fast to remove, no tangles.</p>
           <ul class="spec"><li>Per bush</li><li>Even coverage</li><li>Warm, cool, multi</li></ul></div>
         <div class="rate"><b>$55</b><span>per shrub installed</span></div>
       </div>
       <div class="cat-row">
+        <div class="pic" data-pic="wrap"></div>
         <div><h3>Trunk &amp; branch wrapping<span class="sku">M5 or 5mm on brown or green wire</span></h3></div>
         <div><p>Spiral wrapping up trunks and out along major limbs. Priced by trunk height and reach — a 20 ft maple takes roughly four times the labour of an 8 ft ornamental.</p>
           <ul class="spec"><li>Ornamental from $150</li><li>Mature from $450</li><li>Brown wire disappears</li></ul></div>
         <div class="rate"><b>$150+</b><span>per tree installed</span></div>
       </div>
       <div class="cat-row">
+        <div class="pic" data-pic="canopy"></div>
         <div><h3>Canopy &amp; branch drape<span class="sku">C9, C7 or 5mm · large-format spacing</span></h3></div>
         <div><p>Loose swags draped through upper branches for a lit canopy rather than a lit trunk. Requires reach equipment on anything over 25 feet.</p>
           <ul class="spec"><li>Lift work</li><li>Large specimens</li><li>Quoted per tree</li></ul></div>
         <div class="rate"><b>Quoted</b><span>by height &amp; reach</span></div>
       </div>
       <div class="cat-row">
+        <div class="pic" data-pic="column"></div>
         <div><h3>Column &amp; post wraps<span class="sku">M5 or 5mm spiral · matched pitch</span></h3></div>
         <div><p>Even spiral wrapping on porch columns, pillars, lamp posts and pergola uprights, with the pitch matched across every column on the elevation.</p>
           <ul class="spec"><li>Per column</li><li>Consistent pitch</li><li>Garland option</li></ul></div>
         <div class="rate"><b>$165</b><span>per column installed</span></div>
       </div>
       <div class="cat-row">
+        <div class="pic" data-pic="window"></div>
         <div><h3>Window &amp; door framing<span class="sku">C7, M5 or 5mm · clip-mounted</span></h3></div>
         <div><p>Clean outlines around windows, doors, garage bays and shutters. The cheapest way to make a house look fully decorated rather than just outlined at the top.</p>
           <ul class="spec"><li>Per opening</li><li>No fixings in trim</li><li>Matches roofline</li></ul></div>
         <div class="rate"><b>$85</b><span>per opening installed</span></div>
       </div>
       <div class="cat-row">
+        <div class="pic" data-pic="wreath"></div>
         <div><h3>Lit wreaths, garland &amp; bows<span class="sku">24 in to 72 in · weather-rated velvet bows</span></h3></div>
         <div><p>Commercial wreaths and garland for doors, gables, gates, fences and lamp posts. Supplied and installed, or we hang and store yours.</p>
           <ul class="spec"><li>24–72 in</li><li>Lit or unlit</li><li>Gable mounting</li></ul></div>
         <div class="rate"><b>$140+</b><span>per piece installed</span></div>
       </div>
       <div class="cat-row">
+        <div class="pic" data-pic="ball"></div>
         <div><h3>Light balls &amp; spheres<span class="sku">Pre-formed 10 in to 36 in</span></h3></div>
         <div><p>Hung from trees, porches and pergolas, or clustered on the ground. High visual impact for very little labour.</p>
           <ul class="spec"><li>10–36 in</li><li>Hung or grounded</li><li>Per sphere</li></ul></div>
         <div class="rate"><b>$60+</b><span>per sphere installed</span></div>
       </div>
       <div class="cat-row">
+        <div class="pic" data-pic="stake"></div>
         <div><h3>Pathway stakes<span class="sku">C7 or C9 on stakes · 24 in or 36 in</span></h3></div>
         <div><p>Bulbs on ground stakes lining drives, walks and beds. Set at consistent height and spacing, and pulled before the first plough run if needed.</p>
           <ul class="spec"><li>Per linear ft</li><li>24 or 36 in stakes</li><li>Plough-aware layout</li></ul></div>
         <div class="rate"><b>$3.80</b><span>per linear ft installed</span></div>
       </div>
       <div class="cat-row">
+        <div class="pic" data-pic="motif"></div>
         <div><h3>Motifs, figures &amp; displays<span class="sku">2D and 3D lit forms · rope-light and LED</span></h3></div>
         <div><p>Deer, sleighs, candy canes, arches, oversize ornaments and pole-mounted motifs. Anchored properly, which matters in a January wind off the prairie.</p>
           <ul class="spec"><li>2D &amp; 3D</li><li>Anchored &amp; guyed</li><li>Per piece</li></ul></div>
         <div class="rate"><b>Quoted</b><span>per piece</span></div>
       </div>
       <div class="cat-row">
+        <div class="pic" data-pic="inflate"></div>
         <div><h3>Inflatable setup<span class="sku">Your inflatables · anchoring, power, takedown</span></h3></div>
         <div><p>We'll site, anchor, power and weatherproof what you already own, then pack it away in January. Most companies won't touch these.</p>
           <ul class="spec"><li>Your equipment</li><li>Proper anchoring</li><li>Removal included</li></ul></div>
@@ -590,42 +639,49 @@ html[data-theme="light"] .xlights{opacity:.38;--xwire:#AEBDCA}
     </div>
     <div class="cat">
       <div class="cat-row rgbrow">
+        <div class="pic" data-pic="rgb"></div>
         <div><h3>Permanent RGB track<span class="sku">Soffit or fascia mounted · app controlled</span></h3></div>
         <div><p>Individually addressable RGB LEDs in an aluminium channel tucked under the soffit line. Warm white on ordinary evenings, any colour for any occasion, invisible by day.</p>
           <ul class="spec"><li>App scheduling &amp; scenes</li><li>Music sync</li><li>Front elevation from $2,400</li></ul></div>
         <div class="rate"><b>$22</b><span>per linear ft installed</span></div>
       </div>
       <div class="cat-row rgbrow">
+        <div class="pic" data-pic="path"></div>
         <div><h3>Path &amp; walkway fixtures<span class="sku">Low voltage · cast brass or aluminium</span></h3></div>
         <div><p>Graded path lighting on buried low-voltage runs. Fixture spacing set so pools of light overlap slightly — enough to walk by without an airport-runway effect.</p>
           <ul class="spec"><li>Per fixture</li><li>Brass or aluminium</li><li>Plough-season rated</li></ul></div>
         <div class="rate"><b>$135</b><span>per fixture installed</span></div>
       </div>
       <div class="cat-row rgbrow">
+        <div class="pic" data-pic="spot"></div>
         <div><h3>Uplights &amp; spotlights<span class="sku">Adjustable beam · well or stake mount</span></h3></div>
         <div><p>Facade washes, column grazing and tree uplighting. Beam spread and colour temperature chosen per surface, because brick and limestone want different light.</p>
           <ul class="spec"><li>Per fixture</li><li>Well or stake</li><li>Beam-matched</li></ul></div>
         <div class="rate"><b>$155</b><span>per fixture installed</span></div>
       </div>
       <div class="cat-row rgbrow">
+        <div class="pic" data-pic="step"></div>
         <div><h3>Deck, step &amp; hardscape<span class="sku">Riser, cap and recessed fixtures</span></h3></div>
         <div><p>Step risers, railing caps, retaining walls and seat-wall undersides. Wired during or after construction, cleanly and without surface conduit.</p>
           <ul class="spec"><li>Per fixture</li><li>Recessed options</li><li>Retrofit capable</li></ul></div>
         <div class="rate"><b>$110</b><span>per fixture installed</span></div>
       </div>
       <div class="cat-row rgbrow">
+        <div class="pic" data-pic="patio"></div>
         <div><h3>Patio &amp; pergola strings<span class="sku">Globe, S14 or Edison FlexFilament® bulbs</span></h3></div>
         <div><p>Commercial-weight bistro string on tensioned cable with proper strain relief, so it doesn't sag by August or come down in a storm.</p>
           <ul class="spec"><li>Tensioned cable</li><li>Dimmable</li><li>Globe / S14 / Edison</li></ul></div>
         <div class="rate"><b>$14</b><span>per linear ft installed</span></div>
       </div>
       <div class="cat-row rgbrow">
+        <div class="pic" data-pic="xfmr"></div>
         <div><h3>Transformers &amp; controls<span class="sku">Multi-tap · timers, photocells, zone control</span></h3></div>
         <div><p>Correctly sized multi-tap transformers with voltage-drop calculated per run, plus astronomical timers and zoning. We also correct undersized systems other people installed.</p>
           <ul class="spec"><li>Voltage-drop calculated</li><li>Zoned</li><li>Repairs welcome</li></ul></div>
         <div class="rate"><b>$385+</b><span>per system</span></div>
       </div>
       <div class="cat-row rgbrow">
+        <div class="pic" data-pic="rope"></div>
         <div><h3>Rope &amp; strip light<span class="sku">Clear and coloured LED rope · flexible strip</span></h3></div>
         <div><p>Continuous line light for signage, railings, cove detail, under-cap runs and commercial outlining where individual bulbs would look wrong.</p>
           <ul class="spec"><li>Continuous line</li><li>Cuttable lengths</li><li>Nine colours</li></ul></div>
@@ -794,9 +850,9 @@ calc();
       var g = document.createElementNS(NS,'radialGradient');
       g.setAttribute('id','xg'+i);
       var s1 = document.createElementNS(NS,'stop');
-      s1.setAttribute('offset','0%'); s1.setAttribute('stop-color',c[1]); s1.setAttribute('stop-opacity','.65');
+      s1.setAttribute('offset','0%'); s1.setAttribute('stop-color',c[1]); s1.setAttribute('stop-opacity','.85');
       var s2 = document.createElementNS(NS,'stop');
-      s2.setAttribute('offset','100%'); s2.setAttribute('stop-color',c[0]); s2.setAttribute('stop-opacity','0');
+      s2.setAttribute('offset','55%'); s2.setAttribute('stop-color',c[0]); s2.setAttribute('stop-opacity','.28');
       g.appendChild(s1); g.appendChild(s2); defs.appendChild(g);
     });
     svg.appendChild(defs);
@@ -834,7 +890,7 @@ calc();
 
         var halo = document.createElementNS(NS,'circle');
         halo.setAttribute('cx', x.toFixed(1)); halo.setAttribute('cy', y.toFixed(1));
-        halo.setAttribute('r', (13 * sz).toFixed(1));
+        halo.setAttribute('r', (17 * sz).toFixed(1));
         halo.setAttribute('fill','url(#xg' + gi + ')');
 
         var cap = document.createElementNS(NS,'rect');
@@ -845,7 +901,7 @@ calc();
 
         var core = document.createElementNS(NS,'circle');
         core.setAttribute('cx', x.toFixed(1)); core.setAttribute('cy', (y + 0.6 * sz).toFixed(1));
-        core.setAttribute('r', (3.4 * sz).toFixed(1));
+        core.setAttribute('r', (3.7 * sz).toFixed(1));
         core.setAttribute('fill', c[0]);
 
         var hot = document.createElementNS(NS,'circle');
@@ -868,6 +924,215 @@ calc();
     clearTimeout(t);
     t = setTimeout(build, 220);
   });
+})();
+
+/* ===== product illustrations: original artwork, drawn to scale ===== */
+(function(){
+  var W = 'Wire', A = '#FFD79A', B = '#FFF1DC', COOL = '#DCEBFF';
+  var wire = function(d,w){ return '<path d="'+d+'" fill="none" stroke="#3A4C60" stroke-width="'+(w||1.6)+'" stroke-linecap="round"/>'; };
+  var halo = function(x,y,r,c){ return '<circle cx="'+x+'" cy="'+y+'" r="'+r+'" fill="url(#pg)" opacity=".85"/>'; };
+
+  /* pear-shaped C-series bulb, s = half-width in px */
+  function pear(x,y,s,c,hi){
+    return halo(x,y,s*3.4)+
+      '<path d="M'+x+' '+(y+s*1.7)+' C'+(x-s)+' '+(y+s*1.7)+' '+(x-s)+' '+(y+s*0.2)+' '+(x-s*0.75)+' '+(y-s*0.5)+
+      ' C'+(x-s*0.45)+' '+(y-s*1.2)+' '+(x-s*0.2)+' '+(y-s*1.6)+' '+x+' '+(y-s*1.85)+
+      ' C'+(x+s*0.2)+' '+(y-s*1.6)+' '+(x+s*0.45)+' '+(y-s*1.2)+' '+(x+s*0.75)+' '+(y-s*0.5)+
+      ' C'+(x+s)+' '+(y+s*0.2)+' '+(x+s)+' '+(y+s*1.7)+' '+x+' '+(y+s*1.7)+'Z" fill="'+c+'"/>'+
+      '<rect x="'+(x-s*0.5)+'" y="'+(y+s*1.5)+'" width="'+(s)+'" height="'+(s*0.8)+'" rx="1" fill="#2B3B4C"/>'+
+      (hi?'<circle cx="'+(x-s*0.25)+'" cy="'+(y-s*0.5)+'" r="'+(s*0.28)+'" fill="'+B+'"/>':'');
+  }
+  function dot(x,y,r,c){ return halo(x,y,r*3.2)+'<circle cx="'+x+'" cy="'+y+'" r="'+r+'" fill="'+c+'"/>'; }
+  function capsule(x,y,r,c){ return halo(x,y,r*3.2)+'<rect x="'+(x-r)+'" y="'+(y-r*1.4)+'" width="'+(r*2)+'" height="'+(r*2.8)+'" rx="'+r+'" fill="'+c+'"/>'; }
+
+  /* bulbs spaced along a shallow catenary between x1 and x2 */
+  function run(n, x1, x2, yTop, sag, draw){
+    var out = wire('M'+x1+' '+yTop+' Q'+((x1+x2)/2)+' '+(yTop+sag*2)+' '+x2+' '+yTop), i, t, x, y;
+    for(i=0;i<n;i++){
+      t = n===1 ? .5 : i/(n-1);
+      x = x1 + (x2-x1)*t;
+      y = yTop + sag*2*t*(1-t)*2;
+      out += draw(x, y, i);
+    }
+    return out;
+  }
+
+  var P = {
+    c9:      function(){ return run(4, 12, 92, 26, 14, function(x,y){ return pear(x,y+6,7,A,1); }); },
+    c9c:     function(){ return run(4, 12, 92, 26, 14, function(x,y){ return pear(x,y+6,7,B,1); }); },
+    c7:      function(){ return run(5, 12, 92, 28, 13, function(x,y){ return pear(x,y+5,5.2,A,1); }); },
+    w5:      function(){ return run(8, 10, 94, 32, 12, function(x,y){ return capsule(x,y+4,3.1,A); }); },
+    m5:      function(){ return run(9, 10, 94, 32, 12, function(x,y){ return dot(x,y+4,2.8,A); }); },
+    c6:      function(){ return run(8, 10, 94, 32, 12, function(x,y){ return pear(x,y+3,3.2,A,0); }); },
+    twinkle: function(){ return run(7, 10, 94, 32, 12, function(x,y,i){ return '<g opacity="'+(i%3===0?'.35':(i%3===1?'.7':'1'))+'">'+dot(x,y+4,3.2,A)+'</g>'; }); },
+    icicle:  function(){ var o = wire('M8 20 H96'), i, x, h;
+                for(i=0;i<7;i++){ x = 12+i*13; h = [16,30,22,38,18,32,24][i];
+                  o += wire('M'+x+' 20 V'+(20+h), 1.1);
+                  o += dot(x, 20+h, 2.6, A); }
+                return o; },
+    cascade: function(){ var o='', i, x;
+                for(i=0;i<3;i++){ x = 26+i*26;
+                  o += '<rect x="'+(x-3)+'" y="14" width="6" height="50" rx="3" fill="url(#pv)"/>'
+                     + dot(x, 14+[10,26,40][i], 2.6, B); }
+                return o; },
+    spool:   function(){ return '<circle cx="42" cy="40" r="22" fill="none" stroke="#3A4C60" stroke-width="3"/>'
+                     + '<circle cx="42" cy="40" r="13" fill="none" stroke="#2B3B4C" stroke-width="7"/>'
+                     + wire('M62 34 Q80 30 92 44') + pear(90,50,5.5,A,1); },
+    net:     function(){ var o='', i, j;
+                for(i=0;i<5;i++) o += wire('M'+(12+i*20)+' 14 V64', 1);
+                for(j=0;j<4;j++) o += wire('M12 '+(14+j*17)+' H92', 1);
+                for(i=0;i<5;i++) for(j=0;j<4;j++) o += dot(12+i*20, 14+j*17, 2.2, A);
+                return o; },
+    wrap:    function(){ var o = '<path d="M48 70 V30 M48 42 l-11 -12 M48 50 l12 -14" stroke="#33455A" stroke-width="5" fill="none" stroke-linecap="round"/>', i;
+                for(i=0;i<9;i++) o += dot(48 + Math.sin(i*1.15)*13, 66-i*5, 2.4, A);
+                return o; },
+    canopy:  function(){ var o = '<path d="M52 70 V44" stroke="#33455A" stroke-width="5" stroke-linecap="round"/>'
+                     + '<path d="M20 40 Q52 8 84 40" fill="none" stroke="#2C3C4E" stroke-width="3"/>', i;
+                for(i=0;i<7;i++){ var t=i/6, x=20+64*t, y=40-32*(4*t*(1-t));
+                  o += wire('M'+x+' '+y+' V'+(y+9), 1) + dot(x, y+9, 2.3, A); }
+                return o; },
+    column:  function(){ var o = '<rect x="38" y="12" width="24" height="58" rx="2" fill="#22303F"/>'
+                     + '<rect x="33" y="8" width="34" height="7" rx="2" fill="#2B3B4C"/>'
+                     + '<rect x="33" y="68" width="34" height="7" rx="2" fill="#2B3B4C"/>', i;
+                for(i=0;i<10;i++) o += dot(50 + Math.sin(i*1.25)*11, 66-i*5.4, 2.2, A);
+                return o; },
+    window:  function(){ var o = '<rect x="30" y="16" width="44" height="50" rx="2" fill="#1A2839" stroke="#33455A" stroke-width="2"/>'
+                     + '<path d="M52 16 V66 M30 41 H74" stroke="#33455A" stroke-width="2"/>', i;
+                for(i=0;i<6;i++){ o += dot(26+i*10.4, 12, 2.2, A); }
+                for(i=0;i<5;i++){ o += dot(26, 16+i*11, 2.2, A) + dot(78, 16+i*11, 2.2, A); }
+                return o; },
+    wreath:  function(){ var o = '<circle cx="52" cy="38" r="24" fill="none" stroke="#2F4A3A" stroke-width="10"/>', i;
+                for(i=0;i<10;i++){ var a=i*Math.PI/5; o += dot(52+Math.cos(a)*24, 38+Math.sin(a)*24, 2.2, A); }
+                o += '<path d="M52 62 l-11 12 M52 62 l11 12" stroke="#B03A3A" stroke-width="6" stroke-linecap="round" fill="none"/>';
+                return o; },
+    ball:    function(){ var o = halo(52,40,34) + '<circle cx="52" cy="40" r="22" fill="none" stroke="#3A4C60" stroke-width="1.4"/>', i, j;
+                for(j=-2;j<=2;j++) for(i=0;i<8;i++){ var a=i*Math.PI/4, rr=Math.sqrt(Math.max(0,484-(j*9)*(j*9)));
+                  o += '<circle cx="'+(52+Math.cos(a)*rr*0.92)+'" cy="'+(40+j*9)+'" r="1.7" fill="'+A+'"/>'; }
+                return o; },
+    stake:   function(){ var o = wire('M6 66 H98', 2), i;
+                for(i=0;i<4;i++){ var x=20+i*21;
+                  o += '<rect x="'+(x-1.2)+'" y="40" width="2.4" height="26" fill="#33455A"/>' + pear(x,34,5.5,A,1); }
+                return o; },
+    motif:   function(){ var o='', i;
+                for(i=0;i<6;i++){ var a=i*Math.PI/3;
+                  o += wire('M52 38 L'+(52+Math.cos(a)*26)+' '+(38+Math.sin(a)*26), 2.4); }
+                for(i=0;i<6;i++){ var a2=i*Math.PI/3; o += dot(52+Math.cos(a2)*26, 38+Math.sin(a2)*26, 2.6, B); }
+                return o + dot(52,38,3.4,B); },
+    inflate: function(){ return halo(52,44,32)
+                     + '<ellipse cx="52" cy="52" rx="24" ry="18" fill="#2A3E52"/>'
+                     + '<circle cx="52" cy="28" r="13" fill="#33495F"/>'
+                     + '<circle cx="47" cy="26" r="2" fill="#0C1521"/><circle cx="57" cy="26" r="2" fill="#0C1521"/>'
+                     + wire('M28 66 H76', 2); },
+    rgb:     function(){ var cols = ['#E5484D','#F5C33B','#46A758','#4A8FE0','#A66FD4','#FFD79A'], o = '<rect x="8" y="30" width="88" height="9" rx="3" fill="#22303F"/>', i;
+                for(i=0;i<6;i++){ var x=16+i*14; o += halo(x,34.5,13) + '<rect x="'+(x-4)+'" y="31.5" width="8" height="6" rx="2" fill="'+cols[i]+'"/>'; }
+                return o + '<rect x="8" y="24" width="88" height="6" rx="2" fill="#2B3B4C"/>'; },
+    path:    function(){ return '<path d="M52 74 V40" stroke="#33455A" stroke-width="3.5"/>'
+                     + '<path d="M36 38 h32 l-6 -8 h-20 Z" fill="#2B3B4C"/>'
+                     + '<path d="M38 40 L26 74 H78 L66 40 Z" fill="url(#pc)"/>' + halo(52,40,16); },
+    spot:    function(){ return '<path d="M52 74 V52" stroke="#33455A" stroke-width="3.5"/>'
+                     + '<path d="M40 52 h24 v-9 h-24 Z" fill="#2B3B4C"/>'
+                     + '<path d="M42 42 L24 8 H80 L62 42 Z" fill="url(#pc)"/>' + halo(52,42,17); },
+    step:    function(){ var o='', i;
+                for(i=0;i<3;i++){ var y=22+i*17;
+                  o += '<rect x="'+(14+i*4)+'" y="'+y+'" width="'+(76-i*8)+'" height="10" rx="2" fill="#22303F"/>'
+                     + '<rect x="'+(16+i*4)+'" y="'+(y+10)+'" width="'+(72-i*8)+'" height="2.6" rx="1.3" fill="'+A+'" opacity=".85"/>'
+                     + halo(52, y+11, 22); }
+                return o; },
+    patio:   function(){ return run(4, 10, 94, 22, 18, function(x,y){ return halo(x,y+9,15)+'<circle cx="'+x+'" cy="'+(y+9)+'" r="6" fill="'+A+'"/>'; }); },
+    xfmr:    function(){ return '<rect x="24" y="16" width="56" height="42" rx="5" fill="#22303F" stroke="#3A4C60" stroke-width="1.6"/>'
+                     + '<circle cx="42" cy="34" r="8" fill="none" stroke="'+A+'" stroke-width="2"/>'
+                     + '<path d="M42 34 V28" stroke="'+A+'" stroke-width="2" stroke-linecap="round"/>'
+                     + '<rect x="58" y="27" width="14" height="5" rx="2" fill="#3A4C60"/>'
+                     + '<rect x="58" y="36" width="14" height="5" rx="2" fill="#3A4C60"/>'
+                     + wire('M38 58 Q30 70 14 70', 2) + wire('M66 58 Q74 70 90 70', 2); },
+    rope:    function(){ return '<path d="M8 46 Q28 16 50 44 T94 32" fill="none" stroke="'+A+'" stroke-width="7" stroke-linecap="round" opacity=".28"/>'
+                     + '<path d="M8 46 Q28 16 50 44 T94 32" fill="none" stroke="'+B+'" stroke-width="3" stroke-linecap="round"/>'; }
+  };
+
+  var DEFS = '<defs>'
+    + '<radialGradient id="pg"><stop offset="0%" stop-color="#FFC468" stop-opacity=".5"/><stop offset="100%" stop-color="#FFC468" stop-opacity="0"/></radialGradient>'
+    + '<linearGradient id="pv" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#FFF1DC" stop-opacity=".9"/><stop offset="100%" stop-color="#FFC468" stop-opacity="0"/></linearGradient>'
+    + '<linearGradient id="pc" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#FFD79A" stop-opacity=".42"/><stop offset="100%" stop-color="#FFD79A" stop-opacity="0"/></linearGradient>'
+    + '</defs>';
+
+  var nodes = document.querySelectorAll('.pic[data-pic]'), i;
+  for(i=0;i<nodes.length;i++){
+    var key = nodes[i].getAttribute('data-pic');
+    var body = P[key] ? P[key]() : '';
+    nodes[i].innerHTML = '<svg viewBox="0 0 104 82" xmlns="http://www.w3.org/2000/svg" role="img" aria-hidden="true">' + DEFS + body + '</svg>';
+  }
+})();
+
+/* ===== christmas lights framing the wordmark ===== */
+(function(){
+  var brand = document.querySelector('nav .brand');
+  if(!brand) return;
+  var NS = 'http://www.w3.org/2000/svg';
+  var C = [['#E5484D','#FF9DA0'],['#46A758','#8FE8A4'],['#4A8FE0','#9CCBFF'],
+           ['#F5C33B','#FFE596'],['#A66FD4','#DCB8F7'],['#FFD79A','#FFF1DC']];
+  var sgn = function(v){ return v < 0 ? -1 : 1; };
+
+  function build(){
+    var old = brand.querySelector('.blights');
+    if(old) old.parentNode.removeChild(old);
+
+    var padX = 14, padY = 12;
+    var w = brand.offsetWidth, h = brand.offsetHeight;
+    if(!w) return;
+    var W = w + padX * 2, H = h + padY * 2;
+    var cx = W / 2, cy = H / 2, a = W / 2 - 4, b = H / 2 - 4;
+
+    /* squircle perimeter with a gentle wobble — a strand tacked around the sign */
+    function pt(th){
+      var wob = 1 + 0.07 * Math.sin(th * 7);
+      var ct = Math.cos(th), st = Math.sin(th);
+      return [cx + sgn(ct) * Math.pow(Math.abs(ct), 0.5) * a * wob,
+              cy + sgn(st) * Math.pow(Math.abs(st), 0.5) * b * wob];
+    }
+
+    var N = 240, i, p, d = '';
+    for(i = 0; i <= N; i++){
+      p = pt(i / N * Math.PI * 2);
+      d += (i ? 'L' : 'M') + p[0].toFixed(1) + ' ' + p[1].toFixed(1);
+    }
+
+    var bulbs = '', n = Math.max(14, Math.round((W + H) / 13));
+    for(i = 0; i < n; i++){
+      p = pt(i / n * Math.PI * 2);
+      var c = C[i % C.length];
+      bulbs += '<g class="xb" style="animation-duration:' + (2 + Math.random() * 3.6).toFixed(2)
+            + 's;animation-delay:' + (-Math.random() * 5).toFixed(2) + 's">'
+            + '<circle cx="' + p[0].toFixed(1) + '" cy="' + p[1].toFixed(1) + '" r="6.5" fill="url(#bgl' + (i % C.length) + ')"/>'
+            + '<circle cx="' + p[0].toFixed(1) + '" cy="' + p[1].toFixed(1) + '" r="2.1" fill="' + c[0] + '"/>'
+            + '<circle cx="' + (p[0] - 0.6).toFixed(1) + '" cy="' + (p[1] - 0.6).toFixed(1) + '" r="0.8" fill="' + c[1] + '"/>'
+            + '</g>';
+    }
+
+    var defs = '<defs>';
+    for(i = 0; i < C.length; i++){
+      defs += '<radialGradient id="bgl' + i + '"><stop offset="0%" stop-color="' + C[i][1] + '" stop-opacity=".9"/>'
+           +  '<stop offset="55%" stop-color="' + C[i][0] + '" stop-opacity=".3"/>'
+           +  '<stop offset="100%" stop-color="' + C[i][0] + '" stop-opacity="0"/></radialGradient>';
+    }
+    defs += '</defs>';
+
+    var svg = document.createElementNS(NS, 'svg');
+    svg.setAttribute('class', 'blights');
+    svg.setAttribute('viewBox', '0 0 ' + W + ' ' + H);
+    svg.setAttribute('width', W);
+    svg.setAttribute('height', H);
+    svg.style.left = -padX + 'px';
+    svg.style.top = -padY + 'px';
+    svg.innerHTML = defs
+      + '<path d="' + d + '" fill="none" stroke="var(--xwire)" stroke-width="1.1" opacity=".8"/>'
+      + bulbs;
+    brand.appendChild(svg);
+  }
+
+  build();
+  if(document.fonts && document.fonts.ready) document.fonts.ready.then(build);
+  var bt;
+  window.addEventListener('resize', function(){ clearTimeout(bt); bt = setTimeout(build, 200); });
 })();
 </script>
 </body>

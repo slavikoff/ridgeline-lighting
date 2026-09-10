@@ -18,7 +18,7 @@
   --text:#E8EEF5; --muted:#8CA0B4; --dim:#63788C;
   --glow:#FFC468; --glow-2:#FFE3B0; --glow-soft:rgba(255,196,104,.14);
   --rgb:#63B3E8; --rgb-soft:rgba(99,179,232,.14);
-  --shell:1120px;
+  --shell:1264px;
 }
 html[data-theme="light"]{
   --bg:#EDF1F6; --surface:#FFFFFF; --surface-2:#F6F9FB;
@@ -43,12 +43,15 @@ h1,h2,h3,h4{margin:0;letter-spacing:-.02em}
 /* ============ nav ============ */
 nav{position:sticky;top:0;z-index:50;background:color-mix(in srgb,var(--bg) 88%,transparent);
     backdrop-filter:blur(12px);border-bottom:1px solid var(--rule-soft)}
-.nav-in{display:flex;align-items:center;gap:32px;height:70px;max-width:var(--shell);margin:0 auto;padding:0 28px}
+.nav-in{display:flex;align-items:center;gap:18px;height:70px;max-width:var(--shell);margin:0 auto;padding:0 28px}
 .brand{display:flex;align-items:center;gap:10px;font-size:19px;font-weight:600;text-decoration:none;white-space:nowrap}
 .brand .dot{width:9px;height:9px;border-radius:50%;background:var(--glow);
   box-shadow:0 0 10px 2px var(--glow-soft),0 0 22px 6px var(--glow-soft)}
-.nav-links{display:flex;gap:26px;margin-left:auto;font-size:15px}
-.nav-links a{color:var(--muted);text-decoration:none}
+.nav-links{display:flex;gap:7px;margin-left:auto;font-size:14.5px}
+.nav-links a{color:var(--muted);text-decoration:none;padding:8px 14px;border-radius:8px;
+  border:1px solid var(--rule);background:var(--surface-2);white-space:nowrap;
+  transition:color .15s,border-color .15s,background .15s}
+.nav-links a:hover{color:var(--glow);border-color:var(--glow);background:var(--glow-soft)}
 .nav-links a:hover{color:var(--text)}
 .nav-cta{display:flex;align-items:center;gap:14px}
 .tel{font-size:15px;font-weight:600;text-decoration:none;white-space:nowrap}
@@ -74,7 +77,26 @@ html[data-theme="light"] .btn{color:#FFF8EC}
 .hero-grid{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:center}
 .scene{border-radius:14px;overflow:hidden;border:1px solid #1B2838;
   background:linear-gradient(#070C14,#101E31)}
-.scene svg{display:block;width:100%;height:auto}
+.scene img{display:block;width:100%;height:auto}
+.shot{margin:0 0 40px;border-radius:14px;overflow:hidden;border:1px solid var(--rule);
+  background:#0A121D}
+.shot img{display:block;width:100%;height:auto}
+.shot figcaption{padding:11px 16px;font-size:14px;color:var(--dim);
+  border-top:1px solid var(--rule-soft);background:var(--surface-2)}
+.price-card img{display:block;width:calc(100% + 56px);height:auto;
+  margin:-28px -28px 22px;border-bottom:1px solid var(--rule)}
+.pairs{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:24px}
+.pairs figure{margin:0;border-radius:11px;overflow:hidden;border:1px solid var(--rule);background:#0A121D}
+.pairs img{display:block;width:100%;height:auto}
+.pairs figcaption{padding:8px 11px;font-size:12.5px;color:var(--muted);
+  border-top:1px solid var(--rule-soft);background:var(--surface-2)}
+.gallery{display:grid;grid-template-columns:repeat(2,1fr);gap:18px}
+.gallery figure{margin:0;border-radius:12px;overflow:hidden;border:1px solid var(--rule);background:#0A121D}
+.gallery img{display:block;width:100%;height:auto}
+.gallery figcaption{padding:10px 13px;font-size:13.5px;color:var(--muted);
+  border-top:1px solid var(--rule-soft);background:var(--surface-2)}
+@media (max-width:900px){.gallery{grid-template-columns:repeat(2,1fr)}}
+@media (max-width:560px){.gallery{grid-template-columns:1fr}}
 .bulb{opacity:0}
 @keyframes lite{to{opacity:1}}
 .bulb{animation:lite .5s ease-out forwards}
@@ -143,9 +165,17 @@ section{padding:96px 0}
 .trust p{margin:6px 0 0;color:var(--muted);font-size:16px}
 
 /* area */
-.area{display:flex;flex-wrap:wrap;gap:10px;margin:0;padding:0;list-style:none}
-.area li{border:1px solid var(--rule);border-radius:999px;padding:7px 17px;font-size:15px}
+.area{display:flex;flex-wrap:wrap;gap:8px;margin:0;padding:0;list-style:none}
+.area li{border:1px solid var(--rule);border-radius:999px;padding:6px 15px;font-size:14.5px;color:var(--muted)}
 .area li.core{border-color:var(--glow);color:var(--glow)}
+.regions{border-top:1px solid var(--rule)}
+.region{display:grid;grid-template-columns:230px 1fr;gap:34px;padding:24px 0;
+  border-bottom:1px solid var(--rule-soft);align-items:start}
+.region h3{font-size:18px;font-weight:600}
+.region .tag{display:inline-block;margin-top:7px;font-size:12.5px;color:var(--glow);
+  border:1px solid var(--glow);border-radius:999px;padding:2px 10px}
+.region p{margin:5px 0 0;font-size:14.5px;color:var(--dim);max-width:30ch}
+@media (max-width:760px){.region{grid-template-columns:1fr;gap:12px}}
 
 /* faq */
 details{border-bottom:1px solid var(--rule-soft);padding:20px 0}
@@ -199,24 +229,46 @@ footer a:hover{color:var(--glow)}
   .tel{display:none}
 }
 
+/* ============ searchlight beams ============ */
+.beams{position:fixed;inset:0;z-index:0;pointer-events:none;overflow:hidden;mix-blend-mode:screen}
+html[data-theme="light"] .beams{mix-blend-mode:multiply;opacity:.42}
+.beam{position:absolute;bottom:-12%;width:430px;height:128vh;transform-origin:50% 100%;
+  clip-path:polygon(47.5% 100%, 52.5% 100%, 100% 0, 0 0);filter:blur(16px);
+  animation:sweep 15s ease-in-out infinite alternate}
+.beam.b1{left:27%;background:linear-gradient(to top,rgba(255,196,104,.5),rgba(255,196,104,.10) 52%,transparent 84%)}
+.beam.b2{left:73%;background:linear-gradient(to top,rgba(99,179,232,.44),rgba(99,179,232,.09) 52%,transparent 84%);
+  animation-duration:21s;animation-delay:-7s}
+@keyframes sweep{
+  from{transform:translateX(-50%) rotate(36deg)}
+  to{transform:translateX(-50%) rotate(-36deg)}
+}
+@media (prefers-reduced-motion:reduce){.beam{animation:none;transform:translateX(-50%)}}
+
+/* ============ lights around the wordmark ============ */
+nav .brand{position:relative}
+.blights{position:absolute;pointer-events:none;overflow:visible}
+
 /* ============ background string lights ============ */
 .xlights{position:fixed;inset:0;z-index:0;pointer-events:none;overflow:hidden;
-  opacity:.5;--xwire:#22323F}
-html[data-theme="light"] .xlights{opacity:.38;--xwire:#AEBDCA}
+  opacity:.74;--xwire:#22323F}
+html[data-theme="light"] .xlights{opacity:1;--xwire:#98A9B8;
+  filter:saturate(1.45) brightness(1.06) contrast(1.05)}
 .xlights svg{display:block}
 .shell,section,footer{position:relative;z-index:1}
 .xb{animation-name:flick;animation-iteration-count:infinite;animation-timing-function:ease-in-out}
 @keyframes flick{
   0%,100%{opacity:1}
-  36%{opacity:.42}
-  54%{opacity:.94}
-  71%{opacity:.28}
-  87%{opacity:.86}
+  36%{opacity:.66}
+  54%{opacity:.97}
+  71%{opacity:.52}
+  87%{opacity:.9}
 }
 @media (prefers-reduced-motion:reduce){.xb{animation:none;opacity:.9}}
 </style>
 </head>
 <body>
+
+<div class="beams" aria-hidden="true"><i class="beam b1"></i><i class="beam b2"></i></div>
 
 <div class="xlights" aria-hidden="true"></div>
 
@@ -257,92 +309,9 @@ html[data-theme="light"] .xlights{opacity:.38;--xwire:#AEBDCA}
         <p class="hero-note">Most homes land between $1,500 and $2,500. We publish that because nobody else will.</p>
       </div>
 
-      <div class="scene" aria-label="Illustration of a two-storey house at night with a lit roofline">
-        <svg viewBox="0 0 620 440" xmlns="http://www.w3.org/2000/svg" role="img">
-          <defs>
-            <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1">
-              <stop offset="0%" stop-color="#0A1220"/><stop offset="60%" stop-color="#112034"/><stop offset="100%" stop-color="#16283D"/>
-            </linearGradient>
-            <radialGradient id="halo"><stop offset="0%" stop-color="#FFC468" stop-opacity=".55"/><stop offset="100%" stop-color="#FFC468" stop-opacity="0"/></radialGradient>
-            <linearGradient id="snow" x1="0" y1="0" x2="0" y2="1">
-              <stop offset="0%" stop-color="#25384E"/><stop offset="100%" stop-color="#16273A"/>
-            </linearGradient>
-          </defs>
-
-          <rect width="620" height="440" fill="url(#sky)"/>
-          <!-- stars -->
-          <g fill="#8CA0B4" opacity=".5">
-            <circle cx="70" cy="52" r="1.2"/><circle cx="152" cy="30" r="1"/><circle cx="300" cy="44" r="1.3"/>
-            <circle cx="418" cy="26" r="1"/><circle cx="520" cy="60" r="1.2"/><circle cx="573" cy="34" r="1"/>
-            <circle cx="236" cy="66" r="1"/><circle cx="470" cy="88" r="1"/>
-          </g>
-          <!-- distant treeline -->
-          <path d="M0 300 l34-40 24 40 30-52 26 52 40-34 22 34 36-44 26 44 h-264z" fill="#0C1725"/>
-          <path d="M470 300 l30-46 24 46 32-38 22 38 42-30 v30 h-172z" fill="#0C1725"/>
-
-          <!-- house body -->
-          <path d="M120 300 V186 l106-66 106 66 V300 z" fill="#101C2C"/>
-          <path d="M332 300 V214 l70-40 70 40 V300 z" fill="#0E1928"/>
-          <!-- roofs -->
-          <path d="M104 192 L226 116 348 192 z" fill="#16253A"/>
-          <path d="M322 220 L402 168 482 220 z" fill="#142234"/>
-
-          <!-- windows -->
-          <g fill="#FFD79A" opacity=".82">
-            <rect x="152" y="214" width="34" height="44" rx="3"/>
-            <rect x="266" y="214" width="34" height="44" rx="3"/>
-            <rect x="362" y="242" width="30" height="38" rx="3"/>
-          </g>
-          <rect x="206" y="240" width="40" height="60" rx="3" fill="#1D2E42"/>
-          <rect x="206" y="240" width="40" height="60" rx="3" fill="none" stroke="#2A3D53"/>
-
-          <!-- ground -->
-          <rect x="0" y="298" width="620" height="142" fill="url(#snow)"/>
-          <path d="M0 316 q140 -22 300 -6 t320 -8 v138 H0z" fill="#1B2C40" opacity=".7"/>
-
-          <!-- shrub uplights -->
-          <g>
-            <circle cx="96" cy="322" r="34" fill="url(#halo)" class="bulb" style="animation-delay:2.1s"/>
-            <circle cx="524" cy="322" r="34" fill="url(#halo)" class="bulb" style="animation-delay:2.25s"/>
-            <ellipse cx="96" cy="322" rx="22" ry="16" fill="#132437"/>
-            <ellipse cx="524" cy="322" rx="22" ry="16" fill="#132437"/>
-          </g>
-
-          <!-- roofline bulbs: main gable left slope -->
-          <g>
-            <circle class="bulb" style="animation-delay:.10s" cx="110" cy="194" r="14" fill="url(#halo)"/><circle class="bulb" style="animation-delay:.10s" cx="110" cy="194" r="3.6" fill="#FFE3B0"/>
-            <circle class="bulb" style="animation-delay:.18s" cx="139" cy="176" r="14" fill="url(#halo)"/><circle class="bulb" style="animation-delay:.18s" cx="139" cy="176" r="3.6" fill="#FFE3B0"/>
-            <circle class="bulb" style="animation-delay:.26s" cx="168" cy="158" r="14" fill="url(#halo)"/><circle class="bulb" style="animation-delay:.26s" cx="168" cy="158" r="3.6" fill="#FFE3B0"/>
-            <circle class="bulb" style="animation-delay:.34s" cx="197" cy="140" r="14" fill="url(#halo)"/><circle class="bulb" style="animation-delay:.34s" cx="197" cy="140" r="3.6" fill="#FFE3B0"/>
-            <circle class="bulb" style="animation-delay:.42s" cx="226" cy="122" r="16" fill="url(#halo)"/><circle class="bulb" style="animation-delay:.42s" cx="226" cy="122" r="4" fill="#FFF1D6"/>
-            <circle class="bulb" style="animation-delay:.50s" cx="255" cy="140" r="14" fill="url(#halo)"/><circle class="bulb" style="animation-delay:.50s" cx="255" cy="140" r="3.6" fill="#FFE3B0"/>
-            <circle class="bulb" style="animation-delay:.58s" cx="284" cy="158" r="14" fill="url(#halo)"/><circle class="bulb" style="animation-delay:.58s" cx="284" cy="158" r="3.6" fill="#FFE3B0"/>
-            <circle class="bulb" style="animation-delay:.66s" cx="313" cy="176" r="14" fill="url(#halo)"/><circle class="bulb" style="animation-delay:.66s" cx="313" cy="176" r="3.6" fill="#FFE3B0"/>
-            <circle class="bulb" style="animation-delay:.74s" cx="342" cy="194" r="14" fill="url(#halo)"/><circle class="bulb" style="animation-delay:.74s" cx="342" cy="194" r="3.6" fill="#FFE3B0"/>
-          </g>
-          <!-- garage wing roofline -->
-          <g>
-            <circle class="bulb" style="animation-delay:.86s" cx="328" cy="222" r="13" fill="url(#halo)"/><circle class="bulb" style="animation-delay:.86s" cx="328" cy="222" r="3.4" fill="#FFE3B0"/>
-            <circle class="bulb" style="animation-delay:.94s" cx="365" cy="198" r="13" fill="url(#halo)"/><circle class="bulb" style="animation-delay:.94s" cx="365" cy="198" r="3.4" fill="#FFE3B0"/>
-            <circle class="bulb" style="animation-delay:1.02s" cx="402" cy="172" r="15" fill="url(#halo)"/><circle class="bulb" style="animation-delay:1.02s" cx="402" cy="172" r="3.8" fill="#FFF1D6"/>
-            <circle class="bulb" style="animation-delay:1.10s" cx="439" cy="198" r="13" fill="url(#halo)"/><circle class="bulb" style="animation-delay:1.10s" cx="439" cy="198" r="3.4" fill="#FFE3B0"/>
-            <circle class="bulb" style="animation-delay:1.18s" cx="476" cy="222" r="13" fill="url(#halo)"/><circle class="bulb" style="animation-delay:1.18s" cx="476" cy="222" r="3.4" fill="#FFE3B0"/>
-          </g>
-          <!-- eave run across front -->
-          <g>
-            <circle class="bulb" style="animation-delay:1.32s" cx="138" cy="300" r="11" fill="url(#halo)"/><circle class="bulb" style="animation-delay:1.32s" cx="138" cy="300" r="3" fill="#FFE3B0"/>
-            <circle class="bulb" style="animation-delay:1.40s" cx="172" cy="300" r="11" fill="url(#halo)"/><circle class="bulb" style="animation-delay:1.40s" cx="172" cy="300" r="3" fill="#FFE3B0"/>
-            <circle class="bulb" style="animation-delay:1.48s" cx="278" cy="300" r="11" fill="url(#halo)"/><circle class="bulb" style="animation-delay:1.48s" cx="278" cy="300" r="3" fill="#FFE3B0"/>
-            <circle class="bulb" style="animation-delay:1.56s" cx="312" cy="300" r="11" fill="url(#halo)"/><circle class="bulb" style="animation-delay:1.56s" cx="312" cy="300" r="3" fill="#FFE3B0"/>
-          </g>
-          <!-- wrapped tree -->
-          <g>
-            <rect x="566" y="250" width="6" height="52" fill="#16273A"/>
-            <circle class="bulb" style="animation-delay:1.70s" cx="569" cy="246" r="18" fill="url(#halo)"/>
-            <circle class="bulb" style="animation-delay:1.78s" cx="569" cy="266" r="16" fill="url(#halo)"/>
-            <circle class="bulb" style="animation-delay:1.86s" cx="569" cy="286" r="14" fill="url(#halo)"/>
-          </g>
-        </svg>
+      <div class="scene">
+        <img src="images/hero-roofline.jpg" width="1400" height="940" fetchpriority="high"
+             alt="Two-storey home at night with its roofline outlined in red, green and blue C9 bulbs, snow falling">
       </div>
     </div>
 
@@ -364,6 +333,10 @@ html[data-theme="light"] .xlights{opacity:.38;--xwire:#AEBDCA}
       <p>One crew, one design, one invoice. Every seasonal package includes mid-season service, takedown and off-season storage — those aren't upcharges buried in the fine print.</p>
     </div>
 
+    <figure class="shot">
+      <img src="images/holiday-icicle.jpg" width="1100" height="738" loading="lazy" alt="Brick home with warm white icicle lights along the eaves and net-lit shrubs">
+      <figcaption>Icicles on the gutter line, nets over the foundation shrubs — the two together are what make a house read as finished rather than outlined.</figcaption>
+    </figure>
     <div class="svc">
       <div class="svc-row">
         <h3>Roofline &amp; peaks</h3>
@@ -453,6 +426,9 @@ html[data-theme="light"] .xlights{opacity:.38;--xwire:#AEBDCA}
         </div>
       </div>
       <div>
+        <img src="images/permanent-rgb.jpg" width="1100" height="738" loading="lazy"
+             style="display:block;width:100%;height:auto;border-radius:12px;border:1px solid var(--rule);margin-bottom:24px"
+             alt="Home with permanent RGB lighting across four gables, a colour-wrapped tree and lit shrubs">
         <p style="margin:0;color:var(--muted);font-size:16px">One system, every occasion:</p>
         <div class="swatches">
           <i style="background:#FFD79A"></i><i style="background:#E0534B"></i><i style="background:#4FA96B"></i><i style="background:#E8873A"></i>
@@ -473,6 +449,10 @@ html[data-theme="light"] .xlights{opacity:.38;--xwire:#AEBDCA}
       <h2>The other nine months of the year</h2>
       <p>Low-voltage systems that make the house look expensive after dark. Designed and installed by the same crew, on the same warranty.</p>
     </div>
+    <figure class="shot">
+      <img src="images/landscape-path.jpg" width="1100" height="738" loading="lazy" alt="House with warm white permanent roofline lighting, path lights along the walk and a lit ornamental tree">
+      <figcaption>Permanent warm white roofline with low-voltage path lighting — the same system on an ordinary evening in March.</figcaption>
+    </figure>
     <div class="svc">
       <div class="svc-row">
         <h3>Path &amp; walkway</h3>
@@ -604,21 +584,61 @@ html[data-theme="light"] .xlights{opacity:.38;--xwire:#AEBDCA}
   </div>
 </section>
 
+<!-- ================= WORK ================= -->
+<section style="padding-top:0">
+  <div class="shell">
+    <div class="sec-head">
+      <p class="eyebrow">Design examples</p>
+      <h2>What each option looks like from the kerb</h2>
+      <p>Warm white, multicolour and permanent RGB on the kinds of houses that fill our routes. Reference images to help you choose a direction before the design visit — your own photos go here after your first season.</p>
+    </div>
+    <div class="gallery">
+      <figure><img src="images/g-brick-multi.jpg" width="780" height="523" loading="lazy" alt="Brick two-storey with multicolour roofline lights and lit shrubs, power lines overhead"><figcaption>Multicolour on brick — roofline, porch and shrubs on one design</figcaption></figure>
+      <figure><img src="images/g-split-warm.jpg" width="780" height="523" loading="lazy" alt="Split-level home with a warm white C9 roofline and lit path trees"><figcaption>Warm white C9 on a split-level, roofline only</figcaption></figure>
+      <figure><img src="images/g-rgb-rainbow.jpg" width="780" height="523" loading="lazy" alt="Twin gables lit with permanent RGB in rainbow colours"><figcaption>Permanent RGB running one programme across twin gables</figcaption></figure>
+      <figure><img src="images/g-rgb-clean.jpg" width="780" height="523" loading="lazy" alt="Two-storey home with clean permanent RGB runs and a colour-wrapped tree"><figcaption>The same track set to blocked colour instead of a gradient</figcaption></figure>
+    </div>
+  </div>
+</section>
+
 <!-- ================= AREA ================= -->
 <section style="padding-top:0">
   <div class="shell">
     <div class="sec-head">
       <p class="eyebrow">Service area</p>
-      <h2>Southwest suburbs, and the towns next door</h2>
-      <p>We keep our routes tight so crews spend the day on ladders instead of on I-355. Core towns are highlighted — if you're just outside, call anyway.</p>
+      <h2>Every suburb worth the drive, and most of the ones that aren't</h2>
+      <p>We run routes across the whole metro. The southwest is home ground and gets the fastest service calls, but every town below is booked in a real install week. Not on the list? Call anyway — if your neighbours book too, we build a route.</p>
     </div>
-    <ul class="area">
-      <li class="core">Orland Park</li><li class="core">Palos Park</li><li class="core">Palos Heights</li>
-      <li class="core">Homer Glen</li><li class="core">Lemont</li><li class="core">Frankfort</li>
-      <li>Burr Ridge</li><li>Western Springs</li><li>La Grange</li><li>Willowbrook</li>
-      <li>Darien</li><li>Lockport</li><li>Mokena</li><li>Tinley Park</li><li>New Lenox</li>
-      <li>Hinsdale</li><li>Oak Brook</li><li>Downers Grove</li><li>Naperville</li>
-    </ul>
+    <div class="regions">
+      <div class="region">
+        <div><h3>Southwest suburbs</h3><span class="tag">Core route</span><p>Our home routes. Densest crew coverage and fastest service calls.</p></div>
+        <ul class="area"><li class="core">Orland Park</li><li class="core">Palos Park</li><li class="core">Palos Heights</li><li class="core">Palos Hills</li><li class="core">Homer Glen</li><li class="core">Lemont</li><li class="core">Frankfort</li><li class="core">Mokena</li><li class="core">New Lenox</li><li class="core">Lockport</li><li class="core">Tinley Park</li><li class="core">Orland Hills</li><li class="core">Oak Forest</li><li class="core">Hickory Hills</li><li class="core">Worth</li><li class="core">Chicago Ridge</li><li class="core">Bridgeview</li><li class="core">Burbank</li><li class="core">Justice</li><li class="core">Willow Springs</li></ul>
+      </div>
+      <div class="region">
+        <div><h3>West &amp; DuPage</h3><p>Full coverage, booked in the same install weeks.</p></div>
+        <ul class="area"><li>Hinsdale</li><li>Oak Brook</li><li>Burr Ridge</li><li>Western Springs</li><li>La Grange</li><li>La Grange Park</li><li>Clarendon Hills</li><li>Westmont</li><li>Downers Grove</li><li>Darien</li><li>Willowbrook</li><li>Woodridge</li><li>Lisle</li><li>Naperville</li><li>Wheaton</li><li>Glen Ellyn</li><li>Lombard</li><li>Villa Park</li><li>Elmhurst</li><li>Oak Park</li><li>River Forest</li><li>Riverside</li><li>Brookfield</li><li>Westchester</li><li>Hinsdale Park</li></ul>
+      </div>
+      <div class="region">
+        <div><h3>Northwest suburbs</h3><p>Served from a second route; book early, these fill first.</p></div>
+        <ul class="area"><li>Arlington Heights</li><li>Palatine</li><li>Inverness</li><li>Barrington</li><li>South Barrington</li><li>North Barrington</li><li>Barrington Hills</li><li>Deer Park</li><li>Lake Zurich</li><li>Long Grove</li><li>Kildeer</li><li>Schaumburg</li><li>Hoffman Estates</li><li>Rolling Meadows</li><li>Mount Prospect</li><li>Des Plaines</li><li>Park Ridge</li><li>Elk Grove Village</li><li>Buffalo Grove</li><li>Wheeling</li><li>Prospect Heights</li><li>Itasca</li><li>Roselle</li><li>Bloomingdale</li><li>Addison</li><li>Wood Dale</li><li>Bartlett</li><li>Streamwood</li></ul>
+      </div>
+      <div class="region">
+        <div><h3>North Shore &amp; north</h3><p>Premium routes. Larger homes, longer rooflines, earlier cutoff.</p></div>
+        <ul class="area"><li>Evanston</li><li>Wilmette</li><li>Kenilworth</li><li>Winnetka</li><li>Glencoe</li><li>Highland Park</li><li>Highwood</li><li>Lake Forest</li><li>Lake Bluff</li><li>Northbrook</li><li>Northfield</li><li>Glenview</li><li>Deerfield</li><li>Skokie</li><li>Morton Grove</li><li>Niles</li><li>Lincolnwood</li><li>Riverwoods</li><li>Bannockburn</li><li>Libertyville</li><li>Vernon Hills</li><li>Mundelein</li></ul>
+      </div>
+      <div class="region">
+        <div><h3>South &amp; southeast</h3><p>Residential and commercial, including HOA contracts.</p></div>
+        <ul class="area"><li>Oak Lawn</li><li>Evergreen Park</li><li>Alsip</li><li>Crestwood</li><li>Midlothian</li><li>Country Club Hills</li><li>Olympia Fields</li><li>Flossmoor</li><li>Homewood</li><li>Matteson</li><li>Tinley Forest</li><li>Blue Island</li><li>Beverly</li><li>Mount Greenwood</li><li>Lansing</li><li>Munster</li><li>Dyer</li><li>Schererville</li></ul>
+      </div>
+      <div class="region">
+        <div><h3>Fox Valley &amp; far west</h3><p>Minimum job size applies; we route these in batches.</p></div>
+        <ul class="area"><li>St. Charles</li><li>Geneva</li><li>Batavia</li><li>Elgin</li><li>South Elgin</li><li>Aurora</li><li>North Aurora</li><li>Warrenville</li><li>Winfield</li><li>West Chicago</li><li>Carol Stream</li><li>Yorkville</li><li>Oswego</li><li>Plainfield</li></ul>
+      </div>
+      <div class="region">
+        <div><h3>Chicago</h3><p>Bungalow belt and lakefront blocks with off-street ladder access.</p></div>
+        <ul class="area"><li>Edison Park</li><li>Norwood Park</li><li>Sauganash</li><li>Jefferson Park</li><li>Portage Park</li><li>Edgebrook</li><li>Forest Glen</li><li>Lincoln Park</li><li>Lakeview</li><li>North Center</li><li>Roscoe Village</li><li>Beverly</li><li>Mount Greenwood</li><li>Garfield Ridge</li><li>Clearing</li></ul>
+      </div>
+    </div>
   </div>
 </section>
 
@@ -784,9 +804,9 @@ html[data-theme="light"] .xlights{opacity:.38;--xwire:#AEBDCA}
       var g = document.createElementNS(NS,'radialGradient');
       g.setAttribute('id','xg'+i);
       var s1 = document.createElementNS(NS,'stop');
-      s1.setAttribute('offset','0%'); s1.setAttribute('stop-color',c[1]); s1.setAttribute('stop-opacity','.65');
+      s1.setAttribute('offset','0%'); s1.setAttribute('stop-color',c[1]); s1.setAttribute('stop-opacity','.85');
       var s2 = document.createElementNS(NS,'stop');
-      s2.setAttribute('offset','100%'); s2.setAttribute('stop-color',c[0]); s2.setAttribute('stop-opacity','0');
+      s2.setAttribute('offset','55%'); s2.setAttribute('stop-color',c[0]); s2.setAttribute('stop-opacity','.28');
       g.appendChild(s1); g.appendChild(s2); defs.appendChild(g);
     });
     svg.appendChild(defs);
@@ -824,7 +844,7 @@ html[data-theme="light"] .xlights{opacity:.38;--xwire:#AEBDCA}
 
         var halo = document.createElementNS(NS,'circle');
         halo.setAttribute('cx', x.toFixed(1)); halo.setAttribute('cy', y.toFixed(1));
-        halo.setAttribute('r', (13 * sz).toFixed(1));
+        halo.setAttribute('r', (17 * sz).toFixed(1));
         halo.setAttribute('fill','url(#xg' + gi + ')');
 
         var cap = document.createElementNS(NS,'rect');
@@ -835,7 +855,7 @@ html[data-theme="light"] .xlights{opacity:.38;--xwire:#AEBDCA}
 
         var core = document.createElementNS(NS,'circle');
         core.setAttribute('cx', x.toFixed(1)); core.setAttribute('cy', (y + 0.6 * sz).toFixed(1));
-        core.setAttribute('r', (3.4 * sz).toFixed(1));
+        core.setAttribute('r', (3.7 * sz).toFixed(1));
         core.setAttribute('fill', c[0]);
 
         var hot = document.createElementNS(NS,'circle');
@@ -858,6 +878,78 @@ html[data-theme="light"] .xlights{opacity:.38;--xwire:#AEBDCA}
     clearTimeout(t);
     t = setTimeout(build, 220);
   });
+})();
+
+/* ===== christmas lights framing the wordmark ===== */
+(function(){
+  var brand = document.querySelector('nav .brand');
+  if(!brand) return;
+  var NS = 'http://www.w3.org/2000/svg';
+  var C = [['#E5484D','#FF9DA0'],['#46A758','#8FE8A4'],['#4A8FE0','#9CCBFF'],
+           ['#F5C33B','#FFE596'],['#A66FD4','#DCB8F7'],['#FFD79A','#FFF1DC']];
+  var sgn = function(v){ return v < 0 ? -1 : 1; };
+
+  function build(){
+    var old = brand.querySelector('.blights');
+    if(old) old.parentNode.removeChild(old);
+
+    var padX = 14, padY = 12;
+    var w = brand.offsetWidth, h = brand.offsetHeight;
+    if(!w) return;
+    var W = w + padX * 2, H = h + padY * 2;
+    var cx = W / 2, cy = H / 2, a = W / 2 - 4, b = H / 2 - 4;
+
+    /* squircle perimeter with a gentle wobble — a strand tacked around the sign */
+    function pt(th){
+      var wob = 1 + 0.07 * Math.sin(th * 7);
+      var ct = Math.cos(th), st = Math.sin(th);
+      return [cx + sgn(ct) * Math.pow(Math.abs(ct), 0.5) * a * wob,
+              cy + sgn(st) * Math.pow(Math.abs(st), 0.5) * b * wob];
+    }
+
+    var N = 240, i, p, d = '';
+    for(i = 0; i <= N; i++){
+      p = pt(i / N * Math.PI * 2);
+      d += (i ? 'L' : 'M') + p[0].toFixed(1) + ' ' + p[1].toFixed(1);
+    }
+
+    var bulbs = '', n = Math.max(14, Math.round((W + H) / 13));
+    for(i = 0; i < n; i++){
+      p = pt(i / n * Math.PI * 2);
+      var c = C[i % C.length];
+      bulbs += '<g class="xb" style="animation-duration:' + (2 + Math.random() * 3.6).toFixed(2)
+            + 's;animation-delay:' + (-Math.random() * 5).toFixed(2) + 's">'
+            + '<circle cx="' + p[0].toFixed(1) + '" cy="' + p[1].toFixed(1) + '" r="6.5" fill="url(#bgl' + (i % C.length) + ')"/>'
+            + '<circle cx="' + p[0].toFixed(1) + '" cy="' + p[1].toFixed(1) + '" r="2.1" fill="' + c[0] + '"/>'
+            + '<circle cx="' + (p[0] - 0.6).toFixed(1) + '" cy="' + (p[1] - 0.6).toFixed(1) + '" r="0.8" fill="' + c[1] + '"/>'
+            + '</g>';
+    }
+
+    var defs = '<defs>';
+    for(i = 0; i < C.length; i++){
+      defs += '<radialGradient id="bgl' + i + '"><stop offset="0%" stop-color="' + C[i][1] + '" stop-opacity=".9"/>'
+           +  '<stop offset="55%" stop-color="' + C[i][0] + '" stop-opacity=".3"/>'
+           +  '<stop offset="100%" stop-color="' + C[i][0] + '" stop-opacity="0"/></radialGradient>';
+    }
+    defs += '</defs>';
+
+    var svg = document.createElementNS(NS, 'svg');
+    svg.setAttribute('class', 'blights');
+    svg.setAttribute('viewBox', '0 0 ' + W + ' ' + H);
+    svg.setAttribute('width', W);
+    svg.setAttribute('height', H);
+    svg.style.left = -padX + 'px';
+    svg.style.top = -padY + 'px';
+    svg.innerHTML = defs
+      + '<path d="' + d + '" fill="none" stroke="var(--xwire)" stroke-width="1.1" opacity=".8"/>'
+      + bulbs;
+    brand.appendChild(svg);
+  }
+
+  build();
+  if(document.fonts && document.fonts.ready) document.fonts.ready.then(build);
+  var bt;
+  window.addEventListener('resize', function(){ clearTimeout(bt); bt = setTimeout(build, 200); });
 })();
 </script>
 </body>
