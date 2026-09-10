@@ -184,8 +184,14 @@ footer a:hover{color:var(--glow)}
   .tel{display:none}
 }
 /* ============ searchlight beams ============ */
-.beams{position:fixed;inset:0;z-index:0;pointer-events:none;overflow:hidden;mix-blend-mode:screen}
-html[data-theme="light"] .beams{mix-blend-mode:multiply;opacity:.42}
+.beams{position:fixed;inset:0;z-index:0;pointer-events:none;overflow:hidden;
+  mix-blend-mode:screen;opacity:.5}
+html[data-theme="light"] .beams{mix-blend-mode:multiply;opacity:.18}
+
+/* scrim: sits above the decoration, below every word on the page */
+body::after{content:"";position:fixed;inset:0;z-index:0;pointer-events:none;
+  background:var(--bg);opacity:.62}
+html[data-theme="light"] body::after{opacity:.68}
 .beam{position:absolute;bottom:-12%;width:430px;height:128vh;transform-origin:50% 100%;
   clip-path:polygon(47.5% 100%, 52.5% 100%, 100% 0, 0 0);filter:blur(16px);
   animation:sweep 15s ease-in-out infinite alternate}
@@ -204,9 +210,9 @@ nav .brand{position:relative}
 
 /* ============ background string lights ============ */
 .xlights{position:fixed;inset:0;z-index:0;pointer-events:none;overflow:hidden;
-  opacity:.74;--xwire:#22323F}
-html[data-theme="light"] .xlights{opacity:1;--xwire:#98A9B8;
-  filter:saturate(1.45) brightness(1.06) contrast(1.05)}
+  opacity:.34;--xwire:#22323F}
+html[data-theme="light"] .xlights{opacity:.38;--xwire:#B4C2CE;
+  filter:saturate(1.3) brightness(1.02)}
 .xlights svg{display:block}
 .shell,section,footer{position:relative;z-index:1}
 .xb{animation-name:flick;animation-iteration-count:infinite;animation-timing-function:ease-in-out}
@@ -850,9 +856,9 @@ calc();
       var g = document.createElementNS(NS,'radialGradient');
       g.setAttribute('id','xg'+i);
       var s1 = document.createElementNS(NS,'stop');
-      s1.setAttribute('offset','0%'); s1.setAttribute('stop-color',c[1]); s1.setAttribute('stop-opacity','.85');
+      s1.setAttribute('offset','0%'); s1.setAttribute('stop-color',c[1]); s1.setAttribute('stop-opacity','.5');
       var s2 = document.createElementNS(NS,'stop');
-      s2.setAttribute('offset','55%'); s2.setAttribute('stop-color',c[0]); s2.setAttribute('stop-opacity','.28');
+      s2.setAttribute('offset','60%'); s2.setAttribute('stop-color',c[0]); s2.setAttribute('stop-opacity','.08');
       g.appendChild(s1); g.appendChild(s2); defs.appendChild(g);
     });
     svg.appendChild(defs);
@@ -890,7 +896,7 @@ calc();
 
         var halo = document.createElementNS(NS,'circle');
         halo.setAttribute('cx', x.toFixed(1)); halo.setAttribute('cy', y.toFixed(1));
-        halo.setAttribute('r', (17 * sz).toFixed(1));
+        halo.setAttribute('r', (11 * sz).toFixed(1));
         halo.setAttribute('fill','url(#xg' + gi + ')');
 
         var cap = document.createElementNS(NS,'rect');
@@ -901,12 +907,12 @@ calc();
 
         var core = document.createElementNS(NS,'circle');
         core.setAttribute('cx', x.toFixed(1)); core.setAttribute('cy', (y + 0.6 * sz).toFixed(1));
-        core.setAttribute('r', (3.7 * sz).toFixed(1));
+        core.setAttribute('r', (2.7 * sz).toFixed(1));
         core.setAttribute('fill', c[0]);
 
         var hot = document.createElementNS(NS,'circle');
         hot.setAttribute('cx', (x - 1 * sz).toFixed(1)); hot.setAttribute('cy', (y - 0.6 * sz).toFixed(1));
-        hot.setAttribute('r', (1.2 * sz).toFixed(1));
+        hot.setAttribute('r', (0.9 * sz).toFixed(1));
         hot.setAttribute('fill', c[1]);
 
         g.appendChild(halo); g.appendChild(cap); g.appendChild(core); g.appendChild(hot);
